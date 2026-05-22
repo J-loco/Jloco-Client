@@ -5,9 +5,10 @@
     <rcount value="10"/>
 
     <conf name="En ligne">
-	<connserver name="Dofus" ip="127.0.0.1" port="450"/>
-	<dataserver url="http://127.0.0.1/" priority="3" />
+	    <connserver name="Dofus" ip="127.0.0.1" port="450"/>
+	    <dataserver url="http://127.0.0.1/dofus/" priority="3" />
         <dataserver url="data/" type="local" priority="4" />
+
     </conf>
 
     <cacheasbitmap>
