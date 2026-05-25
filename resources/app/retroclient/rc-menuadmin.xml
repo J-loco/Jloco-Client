@@ -1,0 +1,927 @@
+<commands>
+    <item type="startup" label="StartUp">
+        <item type="sendCommand" command="/debug" />
+        <item type="sendChat" command="/debug" />
+    </item>
+    <item type="static" label="Menu Admin — %p" />
+    <item type="loadXML" label="↺ Recharger le menu" />
+
+    <!-- Raccourcis rapides -->
+    <item type="sendCommand" label="Aller au joueur" command="GON %p" />
+    <item type="sendCommand" label="Faire venir le joueur" command="NGO %p" />
+    <item type="sendCommand" label="Invisible ON/OFF" command="INV" />
+    <item type="sendCommand" label="Ressusciter" command="RES %p" />
+    <item type="sendCommand" label="Sauvegarde serveur" command="SAVE" />
+    <item type="sendCommand" label="Soigner (100%)" command="LIFE 100 %p" />
+
+    <item type="menu" label="Alignement">
+        <item type="loadXML" label="↺ Menu principal" />
+        <item type="static" label="Alignement de %p" />
+        <item type="sendCommand" label="Bontarien (1)" command="ALIGN 1 %p" />
+        <item type="sendCommand" label="Brakmarien (2)" command="ALIGN 2 %p" />
+        <item type="sendCommand" label="Mercenaire (3)" command="ALIGN 3 %p" />
+        <item type="sendCommand" label="Neutre (0)" command="ALIGN 0 %p" />
+        <item type="static" label="Points d'honneur" />
+        <item type="sendCommand" label="500 PH — Grade 2" command="HONOR 500 %p" />
+        <item type="sendCommand" label="1500 PH — Grade 3" command="HONOR 1500 %p" />
+        <item type="sendCommand" label="3000 PH — Grade 4" command="HONOR 3000 %p" />
+        <item type="sendCommand" label="5000 PH — Grade 5" command="HONOR 5000 %p" />
+        <item type="sendCommand" label="7500 PH — Grade 6" command="HONOR 7500 %p" />
+        <item type="sendCommand" label="10000 PH — Grade 7" command="HONOR 10000 %p" />
+        <item type="sendCommand" label="12500 PH — Grade 8" command="HONOR 12500 %p" />
+        <item type="sendCommand" label="15000 PH — Grade 9" command="HONOR 15000 %p" />
+        <item type="sendCommand" label="18000 PH — Grade 10" command="HONOR 18000 %p" />
+    </item>
+
+    <item type="menu" label="Animation / Events">
+        <item type="loadXML" label="↺ Menu principal" />
+        <item type="static" label="Annonces" />
+        <item type="sendCommand" label="Annonce globale (ANAME)" command="ANAME " />
+        <item type="sendCommand" label="Message serveur (A)" command="A " />
+        <item type="sendCommand" label="Popup a tous" command="POPALL " />
+        <item type="sendCommand" label="Popup au joueur" command="POP %p " />
+        <item type="sendCommand" label="Signaler presence" command="ANAME Salut tout le monde, je suis disponible !" />
+        <item type="menu" label="Annonces Admin">
+            <item type="sendCommand" label="Commerce inter-serveur interdit" command="ANAME Je rappelle qu'il est strictement interdit d'exercer un commerce entre l'officiel et ce serveur. Merci." />
+            <item type="sendCommand" label="Francais et anglais uniquement" command="ANAME Seul le francais et l'anglais sont autorises. Merci." />
+            <item type="sendCommand" label="Pensez a voter !" command="ANAME N'oubliez pas de voter ! Merci." />
+            <item type="sendCommand" label="Report bug sur Discord" command="ANAME Si vous rencontrez un bug, signalez-le sur Discord. Merci." />
+            <item type="sendCommand" label="Staff ne donne pas d'items" command="ANAME Je rappelle que le staff ne donne pas d'items. Merci de votre comprehension." />
+        </item>
+        <item type="menu" label="Annonces Event">
+            <item type="sendCommand" label="Demarrage Event" command="ANAME Un event est sur le point de Demarrer !" />
+            <item type="sendCommand" label="Event Cache-cache" command="ANAME Un event cache cache est sur le point de Demarrer !" />
+            <item type="sendCommand" label="Event Morph" command="ANAME Un event morph est sur le point de Demarrer !" />
+            <item type="sendCommand" label="Event PVP" command="ANAME Un event PVP est sur le point de Demarrer !" />
+            <item type="sendCommand" label="Gagnant event" command="ANNOUNCE Felicitations a %p qui remporte l'event." />
+        </item>
+        <item type="menu" label="Events Basiques">
+            <item type="sendCommand" label="Event BAC" command="ANNOUNCE Event Bac en .event ! Jeton Event a gagner. Je veux du monde !" />
+            <item type="sendCommand" label="Event Calcul" command="ANNOUNCE Event calcul en .event ! Jeton Event a gagner. Je veux du monde !" />
+            <item type="sendCommand" label="Event Cache-cache" command="ANNOUNCE Event cache cache ! Jeton Event a gagner." />
+            <item type="sendCommand" label="Event Chafer" command="ANNOUNCE Event chafer ! MP moi pour etre TP. Jeton Event a gagner." />
+            <item type="sendCommand" label="Event Chiffre" command="ANNOUNCE Event chiffre en .event ! Jeton Event a gagner." />
+            <item type="sendCommand" label="Event Course" command="ANNOUNCE Event course ! Jeton Event a gagner. Tenez-vous prets." />
+            <item type="sendCommand" label="Event Flamiche" command="ANNOUNCE Event Flamiche ! Jeton Event a gagner. MP moi pour etre TP." />
+            <item type="sendCommand" label="Event Lettre" command="ANNOUNCE Event lettre en .event ! Jeton Event a gagner." />
+            <item type="sendCommand" label="Event Morph" command="ANNOUNCE Event morph en .event ! Jeton Event a gagner." />
+            <item type="sendCommand" label="Event Mot" command="ANNOUNCE Event mot en .event ! Jeton Event a gagner." />
+            <item type="sendCommand" label="Event Percepteur" command="ANNOUNCE Event percepteur en .event ! Jeton Event a gagner." />
+            <item type="sendCommand" label="Event Piege" command="ANNOUNCE Event Piege en .event ! Jeton Event a gagner." />
+            <item type="sendCommand" label="Event Pile ou Face" command="ANNOUNCE [Event PILE OU FACE] Je vais donner deux positions en canal commerce. La bonne position gagne l'Event !" />
+            <item type="sendCommand" label="Event Qui est-ce" command="ANNOUNCE Event Qui est-ce en .event ! Jeton Event a gagner." />
+            <item type="sendCommand" label="Event Rekop" command="ANNOUNCE Event Rekop en .event ! Jeton Event a gagner." />
+            <item type="sendCommand" label="Event Roulette-Russe" command="ANNOUNCE Event Roulette-Russe en .event ! Jeton Event a gagner." />
+            <item type="sendCommand" label="Event TP" command="ANNOUNCE Event TP ! Jeton Event a gagner. Je me situe dans un .TP." />
+            <item type="sendCommand" label="Event Tuer le staff" command="ANNOUNCE Event Tuer le staff ! Jeton Event a gagner ! MP moi pour etre TP." />
+            <item type="sendCommand" label="Event Zoo" command="ANNOUNCE Event Zoo ! MP moi pour etre TP. Jeton Event a gagner." />
+        </item>
+    </item>
+
+    <item type="menu" label="Apparence">
+        <item type="loadXML" label="↺ Menu principal" />
+        <item type="static" label="Apparence de %p" />
+        <item type="sendCommand" label="Apparence originale" command="MORPH -1 %p" />
+        <item type="sendCommand" label="Demorph" command="DEMORPH %p" />
+        <item type="sendCommand" label="Demorph tous les joueurs" command="DEMORPHALL" />
+        <item type="sendCommand" label="Fullmorph (Crocoburio)" command="FULLMORPH" />
+        <item type="sendCommand" label="Gestionnaire de looks" command="MORPH #look %p" />
+        <item type="sendCommand" label="Invisible (SIZE 0)" command="SIZE 0 %p" />
+        <item type="menu" label="Classes">
+            <item type="sendCommand" label="Cra M" command="MORPH 90 %p" />
+            <item type="sendCommand" label="Cra F" command="MORPH 91 %p" />
+            <item type="sendCommand" label="Ecaflip M" command="MORPH 60 %p" />
+            <item type="sendCommand" label="Ecaflip F" command="MORPH 61 %p" />
+            <item type="sendCommand" label="Eniripsa M" command="MORPH 70 %p" />
+            <item type="sendCommand" label="Eniripsa F" command="MORPH 71 %p" />
+            <item type="sendCommand" label="Enutrof M" command="MORPH 30 %p" />
+            <item type="sendCommand" label="Enutrofette F" command="MORPH 31 %p" />
+            <item type="sendCommand" label="Feca M" command="MORPH 10 %p" />
+            <item type="sendCommand" label="Fecate F" command="MORPH 11 %p" />
+            <item type="sendCommand" label="Iop M" command="MORPH 80 %p" />
+            <item type="sendCommand" label="Iopette F" command="MORPH 81 %p" />
+            <item type="sendCommand" label="Osamodas M" command="MORPH 20 %p" />
+            <item type="sendCommand" label="Osamodas F" command="MORPH 21 %p" />
+            <item type="sendCommand" label="Pandawa M" command="MORPH 120 %p" />
+            <item type="sendCommand" label="Pandawette F" command="MORPH 121 %p" />
+            <item type="sendCommand" label="Sacrieur M" command="MORPH 110 %p" />
+            <item type="sendCommand" label="Sacrieuse F" command="MORPH 111 %p" />
+            <item type="sendCommand" label="Sadida M" command="MORPH 100 %p" />
+            <item type="sendCommand" label="Sadidette F" command="MORPH 101 %p" />
+            <item type="sendCommand" label="Sram M" command="MORPH 40 %p" />
+            <item type="sendCommand" label="Sramette F" command="MORPH 41 %p" />
+            <item type="sendCommand" label="Xelor M" command="MORPH 50 %p" />
+            <item type="sendCommand" label="Xelorette F" command="MORPH 51 %p" />
+        </item>
+        <item type="menu" label="Morphs Divers">
+            <item type="sendCommand" command="MORPH 1001 %p" label="Abraknyde" />
+            <item type="sendCommand" command="MORPH 8003 %p" label="Crocodaille" />
+            <item type="sendCommand" command="MORPH 8004 %p" label="Fantome" />
+            <item type="sendCommand" command="MORPH 1076 %p" label="Gobelin" />
+            <item type="sendCommand" command="MORPH 8037 %p" label="Grenouille" />
+            <item type="sendCommand" command="MORPH 8009 %p" label="Paysane" />
+            <item type="sendCommand" command="MORPH 8001 %p" label="Roublard" />
+            <item type="sendCommand" command="MORPH 8006 %p" label="Seriane" />
+            <item type="sendCommand" command="MORPH 8032 %p" label="Tourmenteur 1" />
+            <item type="sendCommand" command="MORPH 8033 %p" label="Tourmenteur 2" />
+            <item type="sendCommand" command="MORPH 8034 %p" label="Tourmenteur 3" />
+            <item type="sendCommand" command="MORPH 8035 %p" label="Tourmenteur 4" />
+            <item type="sendCommand" command="MORPH 9098 %p" label="Wabbit" />
+            <item type="sendCommand" command="MORPH 9099 %p" label="Ecureuil" />
+        </item>
+        <item type="menu" label="Protecteurs des Mois">
+            <item type="sendCommand" command="MORPH 8016 %p" label="Brumaire" />
+            <item type="sendCommand" command="MORPH 8017 %p" label="Djaul" />
+            <item type="sendCommand" command="MORPH 8013 %p" label="Hecate" />
+            <item type="sendCommand" command="MORPH 8023 %p" label="Jiva" />
+            <item type="sendCommand" command="MORPH 8015 %p" label="Maimane" />
+            <item type="sendCommand" command="MORPH 8019 %p" label="Pouchecot" />
+            <item type="sendCommand" command="MORPH 8021 %p" label="Raval" />
+            <item type="sendCommand" command="MORPH 8020 %p" label="Rosal" />
+            <item type="sendCommand" command="MORPH 8022 %p" label="Silvosse" />
+            <item type="sendCommand" command="MORPH 8014 %p" label="Silouate" />
+            <item type="sendCommand" command="MORPH 8012 %p" label="Summens" />
+            <item type="sendCommand" command="MORPH 8018 %p" label="Ulgrude" />
+        </item>
+        <item type="menu" label="Taille">
+            <item type="sendCommand" label="Size 1%" command="SIZE 1 %p" />
+            <item type="sendCommand" label="Size 25%" command="SIZE 25 %p" />
+            <item type="sendCommand" label="Size 50%" command="SIZE 50 %p" />
+            <item type="sendCommand" label="Size 100% (normal)" command="SIZE 100 %p" />
+            <item type="sendCommand" label="Size 110%" command="SIZE 110 %p" />
+            <item type="sendCommand" label="Size 150%" command="SIZE 150 %p" />
+            <item type="sendCommand" label="Size 200%" command="SIZE 200 %p" />
+            <item type="sendCommand" label="Size 300%" command="SIZE 300 %p" />
+            <item type="sendCommand" label="Size 500%" command="SIZE 500 %p" />
+            <item type="sendCommand" label="Size 5000%" command="SIZE 5000 %p" />
+        </item>
+    </item>
+
+    <item type="menu" label="Combat">
+        <item type="loadXML" label="↺ Menu principal" />
+        <item type="static" label="Actions combat" />
+        <item type="sendCommand" label="Ajouter challenge" command="CHALL " />
+        <item type="sendCommand" label="Bloquer les combats" command="BLOCKFIGHT 1" />
+        <item type="sendCommand" label="Commencer le combat" command="STARTFIGHT" />
+        <item type="sendCommand" label="Debloquer les combats" command="BLOCKFIGHT 0" />
+        <item type="sendCommand" label="Expulser du combat" command="KICKFIGHT %p" />
+        <item type="sendCommand" label="Gagner le combat" command="w 1" />
+        <item type="sendCommand" label="Nettoyer combats de la map" command="CLEANFIGHT" />
+        <item type="sendCommand" label="Terminer combat (joueurs gagnent)" command="ENDFIGHT 1" />
+        <item type="sendCommand" label="Terminer combat (joueurs perdent)" command="ENDFIGHT 0" />
+        <item type="sendCommand" label="Terminer combat (nul)" command="ENDFIGHTNULL" />
+        <item type="sendCommand" label="Terminer TOUS les combats" command="ENDFIGHTALL" />
+        <item type="sendCommand" label="Qui est en combat" command="WHOFIGHT" />
+    </item>
+
+    <item type="menu" label="Dons">
+        <item type="loadXML" label="↺ Menu principal" />
+        <item type="static" label="Dons a %p" />
+        <item type="menu" label="Capital">
+            <item type="sendCommand" label="+5 pts (+1 niv)" command="CAPITAL 5 %p" />
+            <item type="sendCommand" label="+50 pts (+10 niv)" command="CAPITAL 50 %p" />
+            <item type="sendCommand" label="+500 pts (+100 niv)" command="CAPITAL 500 %p" />
+            <item type="sendCommand" label="+1000 pts (+200 niv)" command="CAPITAL 1000 %p" />
+            <item type="sendCommand" label="+1500 pts (+300 niv)" command="CAPITAL 1500 %p" />
+            <item type="sendCommand" label="Capital GM" command="CAPITAL 30000 %p" />
+        </item>
+        <item type="menu" label="Energie et Vie">
+            <item type="sendCommand" label="Energie complete" command="ENERGIE 10000 %p" />
+            <item type="sendCommand" label="Restat joueur" command="RESTAT %p" />
+            <item type="sendCommand" label="Reinitialiser stats" command="RESET %p" />
+            <item type="sendCommand" label="Ressusciter" command="RES %p" />
+            <item type="sendCommand" label="Soigner (100%)" command="LIFE 100 %p" />
+        </item>
+        <item type="menu" label="Items">
+            <item type="sendCommand" label="Cadeau a tous" command="ALLGIFTS " />
+            <item type="sendCommand" label="Cadeau au joueur" command="GIFTS %p " />
+            <item type="sendCommand" label="Gestionnaire d'items" command="ITEM #item %p MAX" />
+            <item type="sendCommand" label="Supprimer inventaire" command="DELINVENTORY %p" />
+        </item>
+        <item type="menu" label="Kamas">
+            <item type="sendCommand" label="1 000 K" command="KAMAS 1000 %p" />
+            <item type="sendCommand" label="10 000 K" command="KAMAS 10000 %p" />
+            <item type="sendCommand" label="100 000 K" command="KAMAS 100000 %p" />
+            <item type="sendCommand" label="1 MK" command="KAMAS 1000000 %p" />
+            <item type="sendCommand" label="10 MK" command="KAMAS 10000000 %p" />
+            <item type="sendCommand" label="100 MK" command="KAMAS 100000000 %p" />
+        </item>
+        <item type="menu" label="Niveau">
+            <item type="sendCommand" label="Niveau 10" command="LEVEL 10 %p" />
+            <item type="sendCommand" label="Niveau 20" command="LEVEL 20 %p" />
+            <item type="sendCommand" label="Niveau 30" command="LEVEL 30 %p" />
+            <item type="sendCommand" label="Niveau 40" command="LEVEL 40 %p" />
+            <item type="sendCommand" label="Niveau 50" command="LEVEL 50 %p" />
+            <item type="sendCommand" label="Niveau 60" command="LEVEL 60 %p" />
+            <item type="sendCommand" label="Niveau 70" command="LEVEL 70 %p" />
+            <item type="sendCommand" label="Niveau 80" command="LEVEL 80 %p" />
+            <item type="sendCommand" label="Niveau 90" command="LEVEL 90 %p" />
+            <item type="sendCommand" label="Niveau 100" command="LEVEL 100 %p" />
+            <item type="sendCommand" label="Niveau 110" command="LEVEL 110 %p" />
+            <item type="sendCommand" label="Niveau 120" command="LEVEL 120 %p" />
+            <item type="sendCommand" label="Niveau 130" command="LEVEL 130 %p" />
+            <item type="sendCommand" label="Niveau 140" command="LEVEL 140 %p" />
+            <item type="sendCommand" label="Niveau 150" command="LEVEL 150 %p" />
+            <item type="sendCommand" label="Niveau 160" command="LEVEL 160 %p" />
+            <item type="sendCommand" label="Niveau 170" command="LEVEL 170 %p" />
+            <item type="sendCommand" label="Niveau 180" command="LEVEL 180 %p" />
+            <item type="sendCommand" label="Niveau 190" command="LEVEL 190 %p" />
+            <item type="sendCommand" label="Niveau 200" command="LEVEL 200 %p" />
+        </item>
+        <item type="menu" label="Points Boutique">
+            <item type="sendCommand" label="+100 pts boutique" command="POINTS 100 %p" />
+            <item type="sendCommand" label="+500 pts boutique" command="POINTS 500 %p" />
+            <item type="sendCommand" label="+1000 pts boutique" command="POINTS 1000 %p" />
+            <item type="sendCommand" label="+5000 pts boutique" command="POINTS 5000 %p" />
+        </item>
+        <item type="menu" label="Points de Sorts">
+            <item type="sendCommand" label="+1 pt (+1 niv)" command="SPELLPOINT 1 %p" />
+            <item type="sendCommand" label="+10 pts (+10 niv)" command="SPELLPOINT 10 %p" />
+            <item type="sendCommand" label="+50 pts (+50 niv)" command="SPELLPOINT 50 %p" />
+            <item type="sendCommand" label="+100 pts (+100 niv)" command="SPELLPOINT 100 %p" />
+            <item type="sendCommand" label="+200 pts (+200 niv)" command="SPELLPOINT 200 %p" />
+            <item type="sendCommand" label="+300 pts (+300 niv)" command="SPELLPOINT 300 %p" />
+        </item>
+        <item type="sendCommand" label="Creer une guilde" command="CREATEGUILD %p" />
+        <item type="sendCommand" label="Donner emote (ID)" command="EMOTE " />
+    </item>
+
+    <item type="menu" label="Droits et Groupes">
+        <item type="loadXML" label="↺ Menu principal" />
+        <item type="static" label="Droits de %p" />
+        <item type="sendCommand" label="Joueur (groupe -1)" command="SETGROUPE -1 %p" />
+        <item type="sendCommand" label="Beta-testeur (groupe 10)" command="SETGROUPE 10 %p" />
+        <item type="sendCommand" label="Moderateur (groupe 6)" command="SETGROUPE 6 %p" />
+        <item type="sendCommand" label="CM (groupe 3)" command="SETGROUPE 3 %p" />
+        <item type="sendCommand" label="Developpeur (groupe 4)" command="SETGROUPE 4 %p" />
+        <item type="sendCommand" label="Administrateur (groupe 2)" command="SETGROUPE 2 %p" />
+        <item type="sendCommand" label="Fondateur (groupe 1)" command="SETGROUPE 1 %p" />
+        <item type="sendCommand" label="Niveau GM login" command="GMLVL %p " />
+        <item type="sendCommand" label="Voir droits groupe" command="SHOWRIGHTGROUPE " />
+    </item>
+
+    <item type="menu" label="Informations">
+        <item type="loadXML" label="↺ Menu principal" />
+        <item type="static" label="Joueur: %p | Guilde: %g" />
+        <item type="static" label="Map: %m | Cell: %c" />
+        <item type="static" label="Date: %d | Heure: %h" />
+        <item type="static" label="Version: %v | Serveur: %s" />
+        <item type="sendCommand" label="Banque du joueur" command="SHOWBANK %p" />
+        <item type="sendCommand" label="Connectes (WHO)" command="WHO" />
+        <item type="sendCommand" label="Connectes tous (WHOALL)" command="WHOALL" />
+        <item type="sendCommand" label="En combat (WHOFIGHT)" command="WHOFIGHT" />
+        <item type="sendCommand" label="Infos map" command="MAPINFO" />
+        <item type="sendCommand" label="Infos serveur" command="INFOS" />
+        <item type="sendCommand" label="Inventaire du joueur" command="SHOWITEM %p" />
+        <item type="sendCommand" label="Mode marchand du joueur" command="SHOWSTORE %p" />
+        <item type="sendCommand" label="Monture du joueur" command="SHOWMOUNT %p" />
+        <item type="sendCommand" label="Points boutique du joueur" command="SHOWPOINTS %p" />
+        <item type="sendCommand" label="Profil complet (WHOIS)" command="WHOIS %p" />
+    </item>
+
+    <item type="menu" label="Map et Monde">
+        <item type="loadXML" label="↺ Menu principal" />
+        <item type="static" label="Map %m" />
+        <item type="sendCommand" label="Actualiser les monstres" command="RMOBS" />
+        <item type="sendCommand" label="Bloquer la map" command="BLOCKMAP 1" />
+        <item type="sendCommand" label="Debloquer la map" command="BLOCKMAP 0" />
+        <item type="sendCommand" label="Effacer objets au sol (map)" command="ERASEMAP" />
+        <item type="sendCommand" label="Effacer objets au sol (tout)" command="ERASEALLMAP" />
+        <item type="sendCommand" label="Extra-monstres anormaux" command="FINDEXTRAMONSTER" />
+        <item type="sendCommand" label="Infos de la map" command="MAPINFO" />
+        <item type="sendCommand" label="Liste des maps" command="LISTMAP" />
+        <item type="sendCommand" label="Muter la map" command="MUTEMAP" />
+        <item type="sendCommand" label="No agro monstres" command="NOAGRO %p" />
+        <item type="sendCommand" label="Recharger drops" command="RELOAD DROPS" />
+        <item type="menu" label="NPCs">
+            <item type="sendCommand" label="Ajouter NPC (ID)" command="ADDNPC " />
+            <item type="sendCommand" label="Ajouter item NPC" command="ADDNPCITEM " />
+            <item type="sendCommand" label="Supprimer NPC (ID)" command="DELNPC " />
+            <item type="sendCommand" label="Supprimer item NPC" command="DELNPCITEM " />
+        </item>
+        <item type="menu" label="Spawn Bosses">
+            <item type="sendCommand" label="Abraknyde Ancestral" command="spawn 173,200,240;651,80,92;651,80,92;651,80,92;917,40,48;917,40,48;917,40,48;917,40,48" />
+            <item type="sendCommand" label="Bandits de Cania" command="spawn 374,100,120;375,100,120;377,100,120" />
+            <item type="sendCommand" label="Blop Multicolore" command="spawn 1184,100,120;1185,100,120;1186,100,120;1187,100,120;1188,150,170" />
+            <item type="sendCommand" label="Bworker" command="spawn 478,400,440;488,165,185;488,165,185;488,165,185;479,90,98;479,90,98;484,125,133" />
+            <item type="sendCommand" label="Chene Mou" command="spawn 257,800,980;258,100,140;260,100,140" />
+            <item type="sendCommand" label="Crocobulia" command="spawn 854,400,480;862,80,96;862,80,96;855,70,78;858,100,108;878,100,108;879,100,108;905,100,108" />
+            <item type="sendCommand" label="Dark Vlad" command="spawn 107,120,140;110,25,37;110,25,37;110,25,37;291,40,48;291,40,48;54,32,40;54,32,40" />
+            <item type="sendCommand" label="Gestionnaire de monstres" command="spawn #monster" />
+            <item type="sendCommand" label="Grozilla et Grasmera" command="spawn 865,800,920;866,800,920" />
+            <item type="sendCommand" label="Kralamour Geant" command="spawn 423,1600,1640" />
+            <item type="sendCommand" label="Maitre Corbac" command="spawn 289,120,200;819,60,68;820,60,68;824,80,88" />
+            <item type="sendCommand" label="Maitre Pandore" command="spawn 514,200,200;612,200,240;607,100,100;566,40,52;578,45,53;579,55,55;580,85,85;537,200,240" />
+            <item type="sendCommand" label="Meulou" command="spawn 232,158,198;159,18,26;159,18,26;102,60,80;102,60,80;287,60,105;287,60,105;301,45,57" />
+            <item type="sendCommand" label="Minotot" command="spawn 827,400,440;121,125,133;831,100,120;832,100,120;668,40,48;829,50,58;830,30,38;830,30,38" />
+            <item type="sendCommand" label="Moon" command="spawn 226,200,200" />
+            <item type="sendCommand" label="Ougah" command="spawn 1159,900,940;1158,149,201;1154,113,169;1157,144,204;1156,152,224;1155,134,190;1153,125,181;1153,125,181" />
+            <item type="sendCommand" label="Peki Peki" command="spawn 605,800,840" />
+            <item type="sendCommand" label="Roissingue" command="spawn 1057,203,239" />
+            <item type="sendCommand" label="Skeunk" command="spawn 780,200,220;677,100,120;673,100,120;675,100,120;681,100,120" />
+            <item type="sendCommand" label="Sphincter Cell" command="spawn 943,400,440;939,100,140;940,100,140;936,80,100;941,80,100;935,70,110;942,70,110;442,42,58" />
+            <item type="sendCommand" label="Tynril" command="spawn 1072,200,240;1085,200,240;1086,200,240;1087,200,240" />
+            <item type="sendCommand" label="Wa Wabbit" command="spawn 180,160,200;181,45,53;181,45,53" />
+        </item>
+    </item>
+
+    <item type="menu" label="Metiers">
+        <item type="loadXML" label="↺ Menu principal" />
+        <item type="static" label="Metiers de %p" />
+        <item type="sendCommand" label="Fermer actions metiers" command="JOBLEFT %p" />
+        <item type="sendCommand" label="Supprimer un metier" command="DELJOB %p " />
+        <item type="menu" label="Apprendre — Artisanat">
+            <item type="sendCommand" label="Alchimiste" command="LJOB 26 %p" />
+            <item type="sendCommand" label="Bijoutier" command="LJOB 16 %p" />
+            <item type="sendCommand" label="Boucher" command="LJOB 56 %p" />
+            <item type="sendCommand" label="Boulanger" command="LJOB 25 %p" />
+            <item type="sendCommand" label="Bricoleur" command="LJOB 65 %p" />
+            <item type="sendCommand" label="Bucheron" command="LJOB 2 %p" />
+            <item type="sendCommand" label="Chasseur" command="LJOB 41 %p" />
+            <item type="sendCommand" label="Cordonnier" command="LJOB 15 %p" />
+            <item type="sendCommand" label="Forgeur Baguette" command="LJOB 19 %p" />
+            <item type="sendCommand" label="Forgeur Baton" command="LJOB 18 %p" />
+            <item type="sendCommand" label="Forgeur Bouclier" command="LJOB 60 %p" />
+            <item type="sendCommand" label="Forgeur Dague" command="LJOB 17 %p" />
+            <item type="sendCommand" label="Forgeur Epee" command="LJOB 11 %p" />
+            <item type="sendCommand" label="Forgeur Hache" command="LJOB 31 %p" />
+            <item type="sendCommand" label="Forgeur Marteau" command="LJOB 14 %p" />
+            <item type="sendCommand" label="Forgeur Pelle" command="LJOB 20 %p" />
+            <item type="sendCommand" label="Mineur" command="LJOB 24 %p" />
+            <item type="sendCommand" label="Paysan" command="LJOB 28 %p" />
+            <item type="sendCommand" label="Pecheur" command="LJOB 36 %p" />
+            <item type="sendCommand" label="Poissonnier" command="LJOB 58 %p" />
+            <item type="sendCommand" label="Sculpteur Arc" command="LJOB 13 %p" />
+            <item type="sendCommand" label="Tailleur" command="LJOB 27 %p" />
+        </item>
+        <item type="menu" label="Apprendre — Forgemagie">
+            <item type="sendCommand" label="Cordomage (bottes/ceinture)" command="LJOB 62 %p" />
+            <item type="sendCommand" label="Costumage (chap/sac/cape)" command="LJOB 64 %p" />
+            <item type="sendCommand" label="Forgemage Baguette" command="LJOB 49 %p" />
+            <item type="sendCommand" label="Forgemage Baton" command="LJOB 50 %p" />
+            <item type="sendCommand" label="Forgemage Dague" command="LJOB 43 %p" />
+            <item type="sendCommand" label="Forgemage Epee" command="LJOB 44 %p" />
+            <item type="sendCommand" label="Forgemage Hache" command="LJOB 47 %p" />
+            <item type="sendCommand" label="Forgemage Marteau" command="LJOB 45 %p" />
+            <item type="sendCommand" label="Forgemage Pelle" command="LJOB 46 %p" />
+            <item type="sendCommand" label="Joaillomage (amulette/anneau)" command="LJOB 63 %p" />
+            <item type="sendCommand" label="Scultemage Arc" command="LJOB 48 %p" />
+        </item>
+        <item type="menu" label="XP Artisanat (lvl 100)">
+            <item type="sendCommand" label="Alchimiste" command="XPJOB 26 582000 %p" />
+            <item type="sendCommand" label="Bijoutier" command="XPJOB 16 582000 %p" />
+            <item type="sendCommand" label="Boucher" command="XPJOB 56 582000 %p" />
+            <item type="sendCommand" label="Boulanger" command="XPJOB 25 582000 %p" />
+            <item type="sendCommand" label="Bricoleur" command="XPJOB 65 582000 %p" />
+            <item type="sendCommand" label="Bucheron" command="XPJOB 2 582000 %p" />
+            <item type="sendCommand" label="Chasseur" command="XPJOB 41 582000 %p" />
+            <item type="sendCommand" label="Cordonnier" command="XPJOB 15 582000 %p" />
+            <item type="sendCommand" label="Forgeur Baguette" command="XPJOB 19 582000 %p" />
+            <item type="sendCommand" label="Forgeur Baton" command="XPJOB 18 582000 %p" />
+            <item type="sendCommand" label="Forgeur Bouclier" command="XPJOB 60 582000 %p" />
+            <item type="sendCommand" label="Forgeur Dague" command="XPJOB 17 582000 %p" />
+            <item type="sendCommand" label="Forgeur Epee" command="XPJOB 11 582000 %p" />
+            <item type="sendCommand" label="Forgeur Hache" command="XPJOB 31 582000 %p" />
+            <item type="sendCommand" label="Forgeur Marteau" command="XPJOB 14 582000 %p" />
+            <item type="sendCommand" label="Forgeur Pelle" command="XPJOB 20 582000 %p" />
+            <item type="sendCommand" label="Mineur" command="XPJOB 24 582000 %p" />
+            <item type="sendCommand" label="Paysan" command="XPJOB 28 582000 %p" />
+            <item type="sendCommand" label="Pecheur" command="XPJOB 36 582000 %p" />
+            <item type="sendCommand" label="Poissonnier" command="XPJOB 58 582000 %p" />
+            <item type="sendCommand" label="Sculpteur Arc" command="XPJOB 13 582000 %p" />
+            <item type="sendCommand" label="Tailleur" command="XPJOB 27 582000 %p" />
+        </item>
+        <item type="menu" label="XP Forgemagie (lvl 100)">
+            <item type="sendCommand" label="Cordomage" command="XPJOB 62 582000 %p" />
+            <item type="sendCommand" label="Costumage" command="XPJOB 64 582000 %p" />
+            <item type="sendCommand" label="Forgemage Baguette" command="XPJOB 49 582000 %p" />
+            <item type="sendCommand" label="Forgemage Baton" command="XPJOB 50 582000 %p" />
+            <item type="sendCommand" label="Forgemage Dague" command="XPJOB 43 582000 %p" />
+            <item type="sendCommand" label="Forgemage Epee" command="XPJOB 44 582000 %p" />
+            <item type="sendCommand" label="Forgemage Hache" command="XPJOB 47 582000 %p" />
+            <item type="sendCommand" label="Forgemage Marteau" command="XPJOB 45 582000 %p" />
+            <item type="sendCommand" label="Forgemage Pelle" command="XPJOB 46 582000 %p" />
+            <item type="sendCommand" label="Joaillomage" command="XPJOB 63 582000 %p" />
+            <item type="sendCommand" label="Scultemage Arc" command="XPJOB 48 582000 %p" />
+        </item>
+    </item>
+
+    <item type="menu" label="Moderation">
+        <item type="loadXML" label="↺ Menu principal" />
+        <item type="static" label="Moderation de %p" />
+        <item type="menu" label="Avertissements">
+            <item type="sendChat" label="Dernier avertissement" command="/w %p Dernier avertissement ou je vous sanctionne !" />
+            <item type="sendChat" label="Flood = mute" command="/w %p Moins de flood ou c'est le mute !" />
+            <item type="sendChat" label="Insulte interdite" command="/w %p Toute insulte ou manque de respect est prohibe et sanctionne." />
+            <item type="sendChat" label="Utiliser /b commerce" command="/w %p Merci d'utiliser le canal Commerce (/b) si besoin." />
+            <item type="sendChat" label="Utiliser /r recrutement" command="/w %p Merci d'utiliser le canal Recrutement (/r) si besoin." />
+        </item>
+        <item type="menu" label="Bans">
+            <item type="sendCommand" label="Ban 1h — Insultes" command="BAN %p 1 Insulte" />
+            <item type="sendCommand" label="Ban 24h — Insultes" command="BAN %p 24 Insulte" />
+            <item type="sendCommand" label="Ban 72h — Insultes" command="BAN %p 72 Insulte" />
+            <item type="sendCommand" label="Ban Def — Insultes" command="BAN %p 0 Insulte" />
+            <item type="sendCommand" label="Ban 24h — Usebug" command="BAN %p 24 Usebug" />
+            <item type="sendCommand" label="Ban 72h — Usebug" command="BAN %p 72 Usebug" />
+            <item type="sendCommand" label="Ban Def — Usebug" command="BAN %p 0 Usebug" />
+            <item type="sendCommand" label="Ban 48h — Commerce inter-serveur" command="BAN %p 48 Commerce Inter-Serveur" />
+            <item type="sendCommand" label="Ban Def — Commerce inter-serveur" command="BAN %p 0 Commerce Inter-Serveur" />
+            <item type="sendCommand" label="Ban par compte" command="BANACCOUNT %p" />
+            <item type="sendCommand" label="Ban IP" command="BANIP %p" />
+            <item type="sendCommand" label="Deban" command="UNBAN %p" />
+            <item type="sendCommand" label="Deban IP" command="UNBANIP %p" />
+        </item>
+        <item type="menu" label="Mutes">
+            <item type="sendCommand" label="Mute 1 min" command="MUTE %p 60" />
+            <item type="sendCommand" label="Mute 3 min" command="MUTE %p 180" />
+            <item type="sendCommand" label="Mute 5 min" command="MUTE %p 300" />
+            <item type="sendCommand" label="Mute 10 min" command="MUTE %p 600" />
+            <item type="sendCommand" label="Mute 30 min" command="MUTE %p 1800" />
+            <item type="sendCommand" label="Mute 1h" command="MUTE %p 3600" />
+            <item type="sendCommand" label="Mute 3h" command="MUTE %p 10800" />
+            <item type="sendCommand" label="Mute infini" command="MUTE %p 0" />
+            <item type="sendCommand" label="Demute" command="UNMUTE %p" />
+            <item type="sendCommand" label="Mute IP" command="MUTEIP %p" />
+            <item type="sendCommand" label="Demute IP" command="UNMUTEIP %p" />
+            <item type="sendCommand" label="Mute map" command="MUTEMAP" />
+        </item>
+        <item type="sendCommand" label="Bloquer echanges" command="BLOCKTRADE 1" />
+        <item type="sendCommand" label="Debloquer echanges" command="BLOCKTRADE 0" />
+        <item type="sendCommand" label="Expulser (KICK)" command="KICK %p" />
+        <item type="sendCommand" label="Expulser tous" command="KICKALL" />
+        <item type="sendCommand" label="Freezer le joueur" command="FREEZE %p" />
+        <item type="sendCommand" label="Mettre en prison" command="JAIL %p" />
+        <item type="sendCommand" label="Liberer de prison" command="UNJAIL %p" />
+        <item type="sendCommand" label="Prison Alkatraz" command="TP 666 359 %p" />
+        <item type="sendCommand" label="Prison Astrub" command="TP 7601 199 %p" />
+    </item>
+
+    <item type="menu" label="Panoplies">
+        <item type="loadXML" label="↺ Menu principal" />
+        <item type="sendCommand" label="Gestionnaire de panoplies" command="ITEMSET #itemset %p MAX" />
+        <item type="menu" label="1 a 20">
+            <item type="menu" label="Piou">
+                <item type="sendCommand" label="Bleu (61)" command="ITEMSET 61 MAX" />
+                <item type="sendCommand" label="Jaune (72)" command="ITEMSET 72 MAX" />
+                <item type="sendCommand" label="Rose (70)" command="ITEMSET 70 MAX" />
+                <item type="sendCommand" label="Rouge (60)" command="ITEMSET 60 MAX" />
+                <item type="sendCommand" label="Vert (71)" command="ITEMSET 71 MAX" />
+                <item type="sendCommand" label="Violet (62)" command="ITEMSET 62 MAX" />
+            </item>
+            <item type="sendCommand" label="Arakne (22)" command="ITEMSET 22 MAX" />
+            <item type="sendCommand" label="Bandit (25)" command="ITEMSET 25 MAX" />
+            <item type="sendCommand" label="Bouftou (1)" command="ITEMSET 1 MAX" />
+            <item type="sendCommand" label="Boune (69)" command="ITEMSET 69 MAX" />
+            <item type="sendCommand" label="Champ Champ (24)" command="ITEMSET 24 MAX" />
+            <item type="sendCommand" label="Champetre (18)" command="ITEMSET 18 MAX" />
+            <item type="sendCommand" label="Homme Ours (12)" command="ITEMSET 12 MAX" />
+            <item type="sendCommand" label="Jeune Aventurier (5)" command="ITEMSET 5 MAX" />
+            <item type="sendCommand" label="Mousse (63)" command="ITEMSET 63 MAX" />
+            <item type="sendCommand" label="Paysan (47)" command="ITEMSET 47 MAX" />
+        </item>
+        <item type="menu" label="21 a 40">
+            <item type="sendCommand" label="Fourbasse (16)" command="ITEMSET 16 MAX" />
+            <item type="sendCommand" label="Larvesque (33)" command="ITEMSET 33 MAX" />
+            <item type="sendCommand" label="Moskito (23)" command="ITEMSET 23 MAX" />
+            <item type="sendCommand" label="Prespic (31)" command="ITEMSET 31 MAX" />
+            <item type="sendCommand" label="Sanglier (21)" command="ITEMSET 21 MAX" />
+            <item type="sendCommand" label="Toady (7)" command="ITEMSET 7 MAX" />
+            <item type="sendCommand" label="Tofu (50)" command="ITEMSET 50 MAX" />
+            <item type="sendCommand" label="Wa (40)" command="ITEMSET 40 MAX" />
+        </item>
+        <item type="menu" label="41 a 60">
+            <item type="menu" label="Blop">
+                <item type="sendCommand" label="Blop Coco (100)" command="ITEMSET 100 MAX" />
+                <item type="sendCommand" label="Blop Griotte (98)" command="ITEMSET 98 MAX" />
+                <item type="sendCommand" label="Blop Indigo (101)" command="ITEMSET 101 MAX" />
+                <item type="sendCommand" label="Blop Reinette (99)" command="ITEMSET 99 MAX" />
+            </item>
+            <item type="menu" label="Kwak">
+                <item type="sendCommand" label="Kwak Flammes (2)" command="ITEMSET 2 MAX" />
+                <item type="sendCommand" label="Kwak Glace (13)" command="ITEMSET 13 MAX" />
+                <item type="sendCommand" label="Kwak Terre (14)" command="ITEMSET 14 MAX" />
+                <item type="sendCommand" label="Kwak Vent (15)" command="ITEMSET 15 MAX" />
+            </item>
+            <item type="menu" label="Scarafeuille">
+                <item type="sendCommand" label="Blanc (29)" command="ITEMSET 29 MAX" />
+                <item type="sendCommand" label="Bleu (30)" command="ITEMSET 30 MAX" />
+                <item type="sendCommand" label="Doree — Donjon (51)" command="ITEMSET 51 MAX" />
+                <item type="sendCommand" label="Noir — Donjon (49)" command="ITEMSET 49 MAX" />
+                <item type="sendCommand" label="Rouge (28)" command="ITEMSET 28 MAX" />
+                <item type="sendCommand" label="Vert (27)" command="ITEMSET 27 MAX" />
+            </item>
+            <item type="sendCommand" label="Abraknyde (3)" command="ITEMSET 3 MAX" />
+            <item type="sendCommand" label="Akwadala (34)" command="ITEMSET 34 MAX" />
+            <item type="sendCommand" label="Boufcool (43)" command="ITEMSET 43 MAX" />
+            <item type="sendCommand" label="Corbac (8)" command="ITEMSET 8 MAX" />
+            <item type="sendCommand" label="Craqueleur (26)" command="ITEMSET 26 MAX" />
+            <item type="sendCommand" label="Dindo (42)" command="ITEMSET 42 MAX" />
+            <item type="sendCommand" label="Gelax (6)" command="ITEMSET 6 MAX" />
+            <item type="sendCommand" label="Koalak (46)" command="ITEMSET 46 MAX" />
+            <item type="sendCommand" label="Megaman (76)" command="ITEMSET 76 MAX" />
+            <item type="sendCommand" label="Tortue (9)" command="ITEMSET 9 MAX" />
+            <item type="sendCommand" label="Vegetatif (10)" command="ITEMSET 10 MAX" />
+            <item type="sendCommand" label="Vioutifoule (75)" command="ITEMSET 75 MAX" />
+            <item type="sendCommand" label="Wabbit (11)" command="ITEMSET 11 MAX" />
+        </item>
+        <item type="menu" label="61 a 80">
+            <item type="menu" label="Blop Royale">
+                <item type="sendCommand" label="Blop Coco Royale (104)" command="ITEMSET 104 MAX" />
+                <item type="sendCommand" label="Blop Griotte Royale (102)" command="ITEMSET 102 MAX" />
+                <item type="sendCommand" label="Blop Indigo Royale (105)" command="ITEMSET 105 MAX" />
+                <item type="sendCommand" label="Blop Reinette Royale (103)" command="ITEMSET 103 MAX" />
+            </item>
+            <item type="sendCommand" label="Aerdala (35)" command="ITEMSET 35 MAX" />
+            <item type="sendCommand" label="Bouftou Royal (4)" command="ITEMSET 4 MAX" />
+            <item type="sendCommand" label="Chef Crocodaille (20)" command="ITEMSET 20 MAX" />
+            <item type="sendCommand" label="Farle Ingalsse (17)" command="ITEMSET 17 MAX" />
+            <item type="sendCommand" label="Kitsou (41)" command="ITEMSET 41 MAX" />
+            <item type="sendCommand" label="Mulou (32)" command="ITEMSET 32 MAX" />
+            <item type="sendCommand" label="O'Boul (38)" command="ITEMSET 38 MAX" />
+            <item type="sendCommand" label="Shika Ingalsse (53)" command="ITEMSET 53 MAX" />
+        </item>
+        <item type="menu" label="81 a 100">
+            <item type="sendCommand" label="Blop Multicolore Royale (106)" command="ITEMSET 106 MAX" />
+            <item type="sendCommand" label="Chef Bwork (19)" command="ITEMSET 19 MAX" />
+            <item type="sendCommand" label="Craqueleur Legendaire (52)" command="ITEMSET 52 MAX" />
+            <item type="sendCommand" label="Feudala (37)" command="ITEMSET 37 MAX" />
+            <item type="sendCommand" label="Koulosse (44)" command="ITEMSET 44 MAX" />
+            <item type="sendCommand" label="Sombre (80)" command="ITEMSET 80 MAX" />
+            <item type="sendCommand" label="Terrdala (36)" command="ITEMSET 36 MAX" />
+        </item>
+        <item type="menu" label="101 a 120">
+            <item type="sendCommand" label="Ancestrale (65)" command="ITEMSET 65 MAX" />
+            <item type="sendCommand" label="Dragon Cochon (58)" command="ITEMSET 58 MAX" />
+            <item type="sendCommand" label="Minotoror (54)" command="ITEMSET 54 MAX" />
+            <item type="sendCommand" label="Rat Blanc (67)" command="ITEMSET 67 MAX" />
+            <item type="sendCommand" label="Rat Noir (68)" command="ITEMSET 68 MAX" />
+            <item type="sendCommand" label="Vassale (77)" command="ITEMSET 77 MAX" />
+        </item>
+        <item type="menu" label="120+">
+            <item type="sendCommand" label="Baveuse (96)" command="ITEMSET 96 MAX" />
+            <item type="sendCommand" label="Bworker Berserker (108)" command="ITEMSET 108 MAX" />
+            <item type="sendCommand" label="Bworker Gladiateur (109)" command="ITEMSET 109 MAX" />
+            <item type="sendCommand" label="Ceremoniale (64)" command="ITEMSET 64 MAX" />
+            <item type="sendCommand" label="Chene Mou (66)" command="ITEMSET 66 MAX" />
+            <item type="sendCommand" label="Claire (79)" command="ITEMSET 79 MAX" />
+            <item type="sendCommand" label="Dragoeuf (56)" command="ITEMSET 56 MAX" />
+            <item type="sendCommand" label="Elya Wood (39)" command="ITEMSET 39 MAX" />
+            <item type="sendCommand" label="Meulou (55)" command="ITEMSET 55 MAX" />
+            <item type="sendCommand" label="Minotot (57)" command="ITEMSET 57 MAX" />
+            <item type="sendCommand" label="Mominotor (59)" command="ITEMSET 59 MAX" />
+            <item type="sendCommand" label="Ougah (118)" command="ITEMSET 118 MAX" />
+            <item type="sendCommand" label="Panoplignon (119)" command="ITEMSET 119 MAX" />
+            <item type="sendCommand" label="Panoplycelium (121)" command="ITEMSET 121 MAX" />
+            <item type="sendCommand" label="Sous-bois (120)" command="ITEMSET 120 MAX" />
+            <item type="sendCommand" label="Souveraine (78)" command="ITEMSET 78 MAX" />
+            <item type="sendCommand" label="Tue-Mouche (107)" command="ITEMSET 107 MAX" />
+            <item type="sendCommand" label="Ventouse (97)" command="ITEMSET 97 MAX" />
+            <item type="sendCommand" label="Zoth Zotheur (93)" command="ITEMSET 93 MAX" />
+            <item type="sendCommand" label="Zothicien (95)" command="ITEMSET 95 MAX" />
+            <item type="sendCommand" label="Zothuliste (94)" command="ITEMSET 94 MAX" />
+        </item>
+        <item type="menu" label="Cadeaux — Classee -60">
+            <item type="sendCommand" label="Ananas (74)" command="ITEMSET 74 MAX" />
+            <item type="sendCommand" label="Bois de l'Est (114)" command="ITEMSET 114 MAX" />
+            <item type="sendCommand" label="Bzz (112)" command="ITEMSET 112 MAX" />
+            <item type="sendCommand" label="Champion (45)" command="ITEMSET 45 MAX" />
+            <item type="sendCommand" label="Cigale (122)" command="ITEMSET 122 MAX" />
+            <item type="sendCommand" label="Citronoplie (115)" command="ITEMSET 115 MAX" />
+            <item type="sendCommand" label="Empire (117)" command="ITEMSET 117 MAX" />
+            <item type="sendCommand" label="Peggy Porkass (113)" command="ITEMSET 113 MAX" />
+            <item type="sendCommand" label="Pompanoplie (124)" command="ITEMSET 124 MAX" />
+        </item>
+        <item type="menu" label="Cadeaux — Classee 60+">
+            <item type="sendCommand" label="Black Wab (127)" command="ITEMSET 127 MAX" />
+            <item type="sendCommand" label="Bouftons Rouges (143)" command="ITEMSET 143 MAX" />
+            <item type="sendCommand" label="Charlie (116)" command="ITEMSET 116 MAX" />
+            <item type="sendCommand" label="Chisp (138)" command="ITEMSET 138 MAX" />
+            <item type="sendCommand" label="Cristaline (125)" command="ITEMSET 125 MAX" />
+            <item type="sendCommand" label="Denree (133)" command="ITEMSET 133 MAX" />
+            <item type="sendCommand" label="Gato (110)" command="ITEMSET 110 MAX" />
+            <item type="sendCommand" label="Gobeuf (146)" command="ITEMSET 146 MAX" />
+            <item type="sendCommand" label="Goldobrak (139)" command="ITEMSET 139 MAX" />
+            <item type="sendCommand" label="Grizou (149)" command="ITEMSET 149 MAX" />
+            <item type="sendCommand" label="Grut (144)" command="ITEMSET 144 MAX" />
+            <item type="sendCommand" label="Kocksis (145)" command="ITEMSET 145 MAX" />
+            <item type="sendCommand" label="Laikteur (147)" command="ITEMSET 147 MAX" />
+            <item type="sendCommand" label="Mace (137)" command="ITEMSET 137 MAX" />
+            <item type="sendCommand" label="Mystere (131)" command="ITEMSET 131 MAX" />
+            <item type="sendCommand" label="Noke (135)" command="ITEMSET 135 MAX" />
+            <item type="sendCommand" label="Papayou (129)" command="ITEMSET 129 MAX" />
+            <item type="sendCommand" label="Parrain (126)" command="ITEMSET 126 MAX" />
+            <item type="sendCommand" label="Paupayahn (111)" command="ITEMSET 111 MAX" />
+            <item type="sendCommand" label="Posh (123)" command="ITEMSET 123 MAX" />
+            <item type="sendCommand" label="Real Boitar (142)" command="ITEMSET 142 MAX" />
+            <item type="sendCommand" label="Rekto Topi (148)" command="ITEMSET 148 MAX" />
+            <item type="sendCommand" label="Slait (128)" command="ITEMSET 128 MAX" />
+            <item type="sendCommand" label="Sleump (140)" command="ITEMSET 140 MAX" />
+            <item type="sendCommand" label="Solaire (136)" command="ITEMSET 136 MAX" />
+            <item type="sendCommand" label="Tetounik (132)" command="ITEMSET 132 MAX" />
+            <item type="sendCommand" label="Vampyre maudit (130)" command="ITEMSET 130 MAX" />
+            <item type="sendCommand" label="Yug (134)" command="ITEMSET 134 MAX" />
+        </item>
+        <item type="menu" label="Cadeaux — Non classee">
+            <item type="sendCommand" label="Altruiste (83)" command="ITEMSET 83 MAX" />
+            <item type="sendCommand" label="Criminelle (89)" command="ITEMSET 89 MAX" />
+            <item type="sendCommand" label="Ethylique (92)" command="ITEMSET 92 MAX" />
+            <item type="sendCommand" label="Exsangue (87)" command="ITEMSET 87 MAX" />
+            <item type="sendCommand" label="Gouttiere (88)" command="ITEMSET 88 MAX" />
+            <item type="sendCommand" label="Indestructible (91)" command="ITEMSET 91 MAX" />
+            <item type="sendCommand" label="Innombrable (84)" command="ITEMSET 84 MAX" />
+            <item type="sendCommand" label="Intemporelle (86)" command="ITEMSET 86 MAX" />
+            <item type="sendCommand" label="Prince des voleurs (82)" command="ITEMSET 82 MAX" />
+            <item type="sendCommand" label="Sauvage (90)" command="ITEMSET 90 MAX" />
+            <item type="sendCommand" label="Temeraire (81)" command="ITEMSET 81 MAX" />
+            <item type="sendCommand" label="Venerable (85)" command="ITEMSET 85 MAX" />
+        </item>
+    </item>
+
+    <item type="menu" label="Quetes">
+        <item type="loadXML" label="↺ Menu principal" />
+        <item type="static" label="Quetes de %p" />
+        <item type="sendCommand" label="Apprendre quete (ADDQUEST ID)" command="ADDQUEST %p " />
+        <item type="sendCommand" label="Items requis (ITEMQUEST ID)" command="ITEMQUEST " />
+        <item type="sendCommand" label="Passer etape suivante" command="SKIPQUEST %p " />
+        <item type="sendCommand" label="Supprimer quete (DELQUEST ID)" command="DELQUEST %p " />
+        <item type="sendCommand" label="Terminer quete (FINISHQUEST ID)" command="FINISHQUEST %p " />
+    </item>
+
+    <item type="menu" label="Serveur">
+        <item type="loadXML" label="↺ Menu principal" />
+        <item type="static" label="Gestion du serveur" />
+        <item type="sendCommand" label="Activer logs debug" command="LOG" />
+        <item type="sendCommand" label="Bloquer combats" command="BLOCKFIGHT 1" />
+        <item type="sendCommand" label="Bloquer echanges" command="BLOCKTRADE 1" />
+        <item type="sendCommand" label="Debloquer combats" command="BLOCKFIGHT 0" />
+        <item type="sendCommand" label="Debloquer echanges" command="BLOCKTRADE 0" />
+        <item type="sendCommand" label="Expulser tous" command="KICKALL" />
+        <item type="sendCommand" label="Recharger drops" command="RELOAD DROPS" />
+        <item type="sendCommand" label="Sauvegarder" command="SAVE" />
+        <item type="menu" label="Etat Serveur">
+            <item type="sendCommand" label="En ligne (1)" command="ETATSERVER 1" />
+            <item type="sendCommand" label="Hors ligne (0)" command="ETATSERVER 0" />
+            <item type="sendCommand" label="Sauvegarde (2)" command="ETATSERVER 2" />
+        </item>
+        <item type="menu" label="Reboot">
+            <item type="sendCommand" label="Reboot dans 5 min" command="SHUTDOWN 5" />
+            <item type="sendCommand" label="Reboot dans 10 min" command="SHUTDOWN 10" />
+            <item type="sendCommand" label="Reboot dans 30 min" command="SHUTDOWN 30" />
+            <item type="sendCommand" label="Annuler le reboot" command="SHUTDOWN 0" />
+            <item type="sendCommand" label="Exit (reboot immediat)" command="EXIT" />
+        </item>
+    </item>
+
+    <item type="menu" label="Sorts">
+        <item type="loadXML" label="↺ Menu principal" />
+        <item type="static" label="Sorts de %p" />
+        <item type="menu" label="Sorts Admin">
+            <item type="sendCommand" label="Capture d'ame (413)" command="LSPELL 413 %p" />
+            <item type="sendCommand" label="Capture de monture (414)" command="LSPELL 414 %p" />
+            <item type="sendCommand" label="Doom (415)" command="LSPELL 415 %p" />
+            <item type="sendCommand" label="Tuerie (411)" command="LSPELL 411 %p" />
+        </item>
+        <item type="menu" label="Sorts Classe">
+            <item type="sendCommand" label="Arbre de vie — Sadida (426)" command="LSPELL 426 %p" />
+            <item type="sendCommand" label="Brokle — Iop (410)" command="LSPELL 410 %p" />
+            <item type="sendCommand" label="Douleur partagee — Sacri (421)" command="LSPELL 421 %p" />
+            <item type="sendCommand" label="Felintion — Eca (412)" command="LSPELL 412 %p" />
+            <item type="sendCommand" label="Fleche de dispertion — Cra (418)" command="LSPELL 418 %p" />
+            <item type="sendCommand" label="Invisible — Sram (72)" command="LSPELL 72 %p" />
+            <item type="sendCommand" label="Ivresse — Panda (423)" command="LSPELL 423 %p" />
+            <item type="sendCommand" label="Laisse Spirituelle — Osa (420)" command="LSPELL 420 %p" />
+            <item type="sendCommand" label="Mise en garde — Feca (422)" command="LSPELL 422 %p" />
+            <item type="sendCommand" label="Mot lotof — Eni (427)" command="LSPELL 427 %p" />
+            <item type="sendCommand" label="Piege sournois — Sram (65)" command="LSPELL 65 %p" />
+            <item type="sendCommand" label="Poisse — Sram (416)" command="LSPELL 416 %p" />
+            <item type="sendCommand" label="Raulebaque — Xel (424)" command="LSPELL 424 %p" />
+            <item type="sendCommand" label="Rekop — Enu (114)" command="LSPELL 114 %p" />
+            <item type="sendCommand" label="Retraite anticipee — Enu (425)" command="LSPELL 425 %p" />
+        </item>
+        <item type="menu" label="Sorts Elementaires">
+            <item type="sendCommand" label="Boomrang Perfide (364)" command="LSPELL 364 %p" />
+            <item type="sendCommand" label="Cawotte (367)" command="LSPELL 367 %p" />
+            <item type="sendCommand" label="Cyclone (456)" command="LSPELL 456 %p" />
+            <item type="sendCommand" label="Flamiche (350)" command="LSPELL 350 %p" />
+            <item type="sendCommand" label="Flamme (455)" command="LSPELL 455 %p" />
+            <item type="sendCommand" label="Foudraiement (369)" command="LSPELL 369 %p" />
+            <item type="sendCommand" label="Liberation (368)" command="LSPELL 368 %p" />
+            <item type="sendCommand" label="Marteau de Moon (366)" command="LSPELL 366 %p" />
+            <item type="sendCommand" label="Rocher (458)" command="LSPELL 458 %p" />
+            <item type="sendCommand" label="Vague (457)" command="LSPELL 457 %p" />
+        </item>
+        <item type="menu" label="Sorts Invocation">
+            <item type="sendCommand" label="Arakne (370)" command="LSPELL 370 %p" />
+            <item type="sendCommand" label="Chaferfu (373)" command="LSPELL 373 %p" />
+        </item>
+        <item type="menu" label="Sorts Maitrise">
+            <item type="sendCommand" label="Arcs (392)" command="LSPELL 392 %p" />
+            <item type="sendCommand" label="Baguettes (394)" command="LSPELL 394 %p" />
+            <item type="sendCommand" label="Batons (390)" command="LSPELL 390 %p" />
+            <item type="sendCommand" label="Dagues (395)" command="LSPELL 395 %p" />
+            <item type="sendCommand" label="Epees (391)" command="LSPELL 391 %p" />
+            <item type="sendCommand" label="Haches (397)" command="LSPELL 397 %p" />
+            <item type="sendCommand" label="Marteaux (393)" command="LSPELL 393 %p" />
+            <item type="sendCommand" label="Pelles (396)" command="LSPELL 396 %p" />
+        </item>
+    </item>
+
+    <item type="menu" label="Teleport">
+        <item type="loadXML" label="↺ Menu principal" />
+        <item type="sendCommand" label="Aller au joueur (GON)" command="GON %p" />
+        <item type="sendCommand" label="Astrub" command="ASTRUB" />
+        <item type="sendCommand" label="Faire venir le joueur (NGO)" command="NGO %p" />
+        <item type="sendCommand" label="Incarnam" command="INCARNAM" />
+        <item type="menu" label="Donjons">
+            <item type="sendCommand" label="Abraknyde (10234)" command="TP 10234 252 %p" />
+            <item type="sendCommand" label="Blop (11879)" command="TP 11879 353 %p" />
+            <item type="sendCommand" label="Blop Royal (11886)" command="TP 11886 353 %p" />
+            <item type="sendCommand" label="Blop Multi Final (11892)" command="TP 11892 353 %p" />
+            <item type="sendCommand" label="Bouftou Royal (2083)" command="TP 2083 381 %p" />
+            <item type="sendCommand" label="Bwork (9750)" command="TP 9750 353 %p" />
+            <item type="sendCommand" label="Bworker (9760)" command="TP 9760 425 %p" />
+            <item type="sendCommand" label="Canides (9645)" command="TP 9645 353 %p" />
+            <item type="sendCommand" label="Chene Mou (8721)" command="TP 8721 395 %p" />
+            <item type="sendCommand" label="Crocabulia (10109)" command="TP 10109 111 %p" />
+            <item type="sendCommand" label="Dark Vlad (325)" command="TP 325 353 %p" />
+            <item type="sendCommand" label="Dragon Cochon (8541)" command="TP 8541 253 %p" />
+            <item type="sendCommand" label="Dragoeuf (10098)" command="TP 10098 353 %p" />
+            <item type="sendCommand" label="Firefoux (8357)" command="TP 8357 183 %p" />
+            <item type="sendCommand" label="Forgeron (2085)" command="TP 2085 410 %p" />
+            <item type="sendCommand" label="Incarnam (10360)" command="TP 10360 353 %p" />
+            <item type="sendCommand" label="Kimbo (11133)" command="TP 11133 240 %p" />
+            <item type="sendCommand" label="Kralamour (10700)" command="TP 10700 303 %p" />
+            <item type="sendCommand" label="Meulou (9648)" command="TP 9648 268 %p" />
+            <item type="sendCommand" label="Minotor (9880)" command="TP 9880 353 %p" />
+            <item type="sendCommand" label="Minotot (9881)" command="TP 9881 353 %p" />
+            <item type="sendCommand" label="Moon (1836)" command="TP 1836 353 %p" />
+            <item type="sendCommand" label="Ougah (11939)" command="TP 11939 343 %p" />
+            <item type="sendCommand" label="Rat Noir (10191)" command="TP 10191 353 %p" />
+            <item type="sendCommand" label="Scara (9778)" command="TP 9778 353 %p" />
+            <item type="sendCommand" label="Skeunk (8977)" command="TP 8977 227 %p" />
+            <item type="sendCommand" label="Sphincter Cell (10149)" command="TP 10149 353 %p" />
+            <item type="sendCommand" label="Tofu Royal (9535)" command="TP 9535 326 %p" />
+            <item type="sendCommand" label="Wabbit (1773)" command="TP 1773 353 %p" />
+        </item>
+        <item type="menu" label="Incarnam">
+            <item type="sendCommand" label="Donjon (10360)" command="TP 10360 353 %p" />
+            <item type="sendCommand" label="Taverne (10354)" command="TP 10354 220 %p" />
+            <item type="sendCommand" label="Temple (10258)" command="TP 10258 271 %p" />
+            <item type="sendCommand" label="Zaap (10297)" command="TP 10297 312 %p" />
+            <item type="sendCommand" label="Zaap (10304)" command="TP 10304 350 %p" />
+            <item type="sendCommand" label="Zaap (10317)" command="TP 10317 195 %p" />
+            <item type="sendCommand" label="Zaap (10349)" command="TP 10349 229 %p" />
+        </item>
+        <item type="menu" label="Astrub">
+            <item type="menu" label="Ateliers Astrub">
+                <item type="sendCommand" label="Alchimistes (7760)" command="TP 7760 316 %p" />
+                <item type="sendCommand" label="Bijoutiers (7544)" command="TP 7544 337 %p" />
+                <item type="sendCommand" label="Boulangers (7546)" command="TP 7546 316 %p" />
+                <item type="sendCommand" label="Bucheron (8708)" command="TP 8708 284 %p" />
+                <item type="sendCommand" label="Boucheries/Chasseurs (7581)" command="TP 7581 339 %p" />
+                <item type="sendCommand" label="Cordonniers (7616)" command="TP 7616 340 %p" />
+                <item type="sendCommand" label="Forgeurs (7614)" command="TP 7614 216 %p" />
+                <item type="sendCommand" label="Mineurs (7615)" command="TP 7615 202 %p" />
+                <item type="sendCommand" label="Paysans (7613)" command="TP 7613 353 %p" />
+                <item type="sendCommand" label="Poissonniers/Pecheurs (7596)" command="TP 7596 279 %p" />
+                <item type="sendCommand" label="Sculpteurs (7576)" command="TP 7576 170 %p" />
+                <item type="sendCommand" label="Tailleurs (7548)" command="TP 7548 295 %p" />
+            </item>
+            <item type="menu" label="HDV Astrub">
+                <item type="sendCommand" label="Alchimistes (7516)" command="TP 7516 280 %p" />
+                <item type="sendCommand" label="Bijoutiers (7514)" command="TP 7514 280 %p" />
+                <item type="sendCommand" label="Bouchers (7515)" command="TP 7515 280 %p" />
+                <item type="sendCommand" label="Boulangers (7510)" command="TP 7510 280 %p" />
+                <item type="sendCommand" label="Bricoleurs (12262)" command="TP 12262 280 %p" />
+                <item type="sendCommand" label="Bucherons (7289)" command="TP 7289 337 %p" />
+                <item type="sendCommand" label="Chasseurs (7350)" command="TP 7350 264 %p" />
+                <item type="sendCommand" label="Cordonniers (7602)" command="TP 7602 309 %p" />
+                <item type="sendCommand" label="Forgerons (7511)" command="TP 7511 280 %p" />
+                <item type="sendCommand" label="Mineurs (7443)" command="TP 7443 381 %p" />
+                <item type="sendCommand" label="Paysans (7397)" command="TP 7397 321 %p" />
+                <item type="sendCommand" label="Pecheurs (7348)" command="TP 7348 328 %p" />
+                <item type="sendCommand" label="Poissonniers (7501)" command="TP 7501 280 %p" />
+                <item type="sendCommand" label="Ressources (7413)" command="TP 7413 328 %p" />
+                <item type="sendCommand" label="Sculpteurs (7512)" command="TP 7512 280 %p" />
+                <item type="sendCommand" label="Tailleurs (7513)" command="TP 7513 280 %p" />
+            </item>
+            <item type="sendCommand" label="Banque (7549)" command="TP 7549 367 %p" />
+            <item type="sendCommand" label="Champs (7421)" command="TP 7421 255 %p" />
+            <item type="sendCommand" label="Foret (7371)" command="TP 7371 367 %p" />
+            <item type="sendCommand" label="Prairies (8579)" command="TP 8579 338 %p" />
+            <item type="sendCommand" label="Temple Guildes (2195)" command="TP 2195 373 %p" />
+            <item type="sendCommand" label="Zaap (7411)" command="TP 7411 311 %p" />
+        </item>
+        <item type="menu" label="Amakna">
+            <item type="menu" label="Temples Amakna">
+                <item type="sendCommand" label="Temple Cra (1558)" command="TP 1558 279 %p" />
+                <item type="sendCommand" label="Temple Eniripsa (6928)" command="TP 6928 122 %p" />
+                <item type="sendCommand" label="Temple Enutrof (1470)" command="TP 1470 215 %p" />
+                <item type="sendCommand" label="Temple Feca (1554)" command="TP 1554 355 %p" />
+                <item type="sendCommand" label="Temple Iop (1549)" command="TP 1549 251 %p" />
+                <item type="sendCommand" label="Temple Osamodas (1546)" command="TP 1546 271 %p" />
+                <item type="sendCommand" label="Temple Pandawa (8490)" command="TP 8490 266 %p" />
+                <item type="sendCommand" label="Temple Sacrieur (6949)" command="TP 6949 212 %p" />
+                <item type="sendCommand" label="Temple Sadida (1466)" command="TP 1466 254 %p" />
+                <item type="sendCommand" label="Temple Sram (6926)" command="TP 6926 137 %p" />
+                <item type="sendCommand" label="Temple Xelor (1469)" command="TP 1469 284 %p" />
+                <item type="sendCommand" label="Temple Zurcarak (1544)" command="TP 1544 132 %p" />
+            </item>
+            <item type="sendCommand" label="Gelees (1371)" command="TP 1371 340 %p" />
+            <item type="sendCommand" label="Koalaks (8910)" command="TP 8910 368 %p" />
+            <item type="sendCommand" label="Kwaks/Craqueleurs (2071)" command="TP 2071 314 %p" />
+            <item type="sendCommand" label="Porcos (1441)" command="TP 1441 127 %p" />
+            <item type="sendCommand" label="Scarabees (1298)" command="TP 1298 179 %p" />
+            <item type="sendCommand" label="Zaap Bonta (4263)" command="TP 4263 171 %p" />
+            <item type="sendCommand" label="Zaap Brakmar (5295)" command="TP 5295 488 %p" />
+        </item>
+        <item type="menu" label="Zones Diverses">
+            <item type="sendCommand" label="Atelier FM Bonta (8731)" command="TP 8731 381 %p" />
+            <item type="sendCommand" label="Atelier FM Brakmar (8732)" command="TP 8732 381 %p" />
+            <item type="sendCommand" label="Boufbowl (9862)" command="TP 9862 250 %p" />
+            <item type="sendCommand" label="Enclos Bontarien (8747)" command="TP 8747 633 %p" />
+            <item type="sendCommand" label="Enclos Brakmarien (8749)" command="TP 8749 632 %p" />
+            <item type="sendCommand" label="Event (3336)" command="TP 3336 183 %p" />
+            <item type="sendCommand" label="Ile du Minotor (9538)" command="TP 9538 183 %p" />
+            <item type="sendCommand" label="Kralamour (11095)" command="TP 11095 580 %p" />
+            <item type="sendCommand" label="Map Secrete (12065)" command="TP 12065 185 %p" />
+            <item type="sendCommand" label="Map Shop (12972)" command="TP 12972 436 %p" />
+            <item type="sendCommand" label="Prison Alkatraz (666)" command="TP 666 240 %p" />
+            <item type="sendCommand" label="Prison Astrub (7601)" command="TP 7601 370 %p" />
+            <item type="sendCommand" label="Zoo (11267)" command="TP 11267 300 %p" />
+            <item type="sendCommand" label="Zone Shop (10114)" command="TP 10114 123 %p" />
+        </item>
+    </item>
+
+    <item type="menu" label="Titres">
+        <item type="loadXML" label="↺ Menu principal" />
+        <item type="static" label="Titres de %p" />
+        <item type="sendCommand" label="Enlever le titre" command="TITRE %p 0" />
+        <item type="menu" label="Autres Titres">
+            <item type="sendCommand" label="Chevalier HispaNique (19)" command="TITRE 19 %p" />
+            <item type="sendCommand" label="Dekrokilliseur (21)" command="TITRE 21 %p" />
+            <item type="sendCommand" label="Heros Bicentenaire (18)" command="TITRE 18 %p" />
+            <item type="sendCommand" label="Terreur de la Presque-ile (20)" command="TITRE 20 %p" />
+            <item type="sendCommand" label="Undefined (999)" command="TITRE 999 %p" />
+        </item>
+        <item type="menu" label="Titres Pourfendeurs">
+            <item type="sendCommand" label="Bworker (8)" command="TITRE 8 %p" />
+            <item type="sendCommand" label="Chene Mou (15)" command="TITRE 15 %p" />
+            <item type="sendCommand" label="Dark Vlad (17)" command="TITRE 17 %p" />
+            <item type="sendCommand" label="Dragon Cochon (14)" command="TITRE 14 %p" />
+            <item type="sendCommand" label="Kimbo (12)" command="TITRE 12 %p" />
+            <item type="sendCommand" label="Koulosse (10)" command="TITRE 10 %p" />
+            <item type="sendCommand" label="Minotoror (13)" command="TITRE 13 %p" />
+            <item type="sendCommand" label="Moon (16)" command="TITRE 16 %p" />
+            <item type="sendCommand" label="Sphincter Cell (9)" command="TITRE 9 %p" />
+            <item type="sendCommand" label="Wa Wabbit (11)" command="TITRE 11 %p" />
+        </item>
+        <item type="menu" label="Titres Primordiaux — Artisanat">
+            <item type="sendCommand" label="Alchimiste (34)" command="TITRE 34 %p" />
+            <item type="sendCommand" label="Bijoutier (27)" command="TITRE 27 %p" />
+            <item type="sendCommand" label="Boucher (48)" command="TITRE 48 %p" />
+            <item type="sendCommand" label="Boulanger (33)" command="TITRE 33 %p" />
+            <item type="sendCommand" label="Bricoleur (54)" command="TITRE 54 %p" />
+            <item type="sendCommand" label="Bucheron (22)" command="TITRE 22 %p" />
+            <item type="sendCommand" label="Chasseur (39)" command="TITRE 39 %p" />
+            <item type="sendCommand" label="Cordonnier (26)" command="TITRE 26 %p" />
+            <item type="sendCommand" label="Forgeur Boucliers (50)" command="TITRE 50 %p" />
+            <item type="sendCommand" label="Forgeur Dagues (28)" command="TITRE 28 %p" />
+            <item type="sendCommand" label="Forgeur Epees (23)" command="TITRE 23 %p" />
+            <item type="sendCommand" label="Forgeur Haches (37)" command="TITRE 37 %p" />
+            <item type="sendCommand" label="Forgeur Marteaux (25)" command="TITRE 25 %p" />
+            <item type="sendCommand" label="Forgeur Pelles (31)" command="TITRE 31 %p" />
+            <item type="sendCommand" label="Mineur (32)" command="TITRE 32 %p" />
+            <item type="sendCommand" label="Paysan (36)" command="TITRE 36 %p" />
+            <item type="sendCommand" label="Pecheur (38)" command="TITRE 38 %p" />
+            <item type="sendCommand" label="Poissonnier (49)" command="TITRE 49 %p" />
+            <item type="sendCommand" label="Sculpteur Arcs (24)" command="TITRE 24 %p" />
+            <item type="sendCommand" label="Sculpteur Baguettes (30)" command="TITRE 30 %p" />
+            <item type="sendCommand" label="Sculpteur Batons (29)" command="TITRE 29 %p" />
+            <item type="sendCommand" label="Tailleur (35)" command="TITRE 35 %p" />
+        </item>
+        <item type="menu" label="Titres Primordiaux — Forgemagie">
+            <item type="sendCommand" label="Cordomage (51)" command="TITRE 51 %p" />
+            <item type="sendCommand" label="Costumage (53)" command="TITRE 53 %p" />
+            <item type="sendCommand" label="Forgemage Dagues (40)" command="TITRE 40 %p" />
+            <item type="sendCommand" label="Forgemage Epees (41)" command="TITRE 41 %p" />
+            <item type="sendCommand" label="Forgemage Haches (44)" command="TITRE 44 %p" />
+            <item type="sendCommand" label="Forgemage Marteaux (42)" command="TITRE 42 %p" />
+            <item type="sendCommand" label="Forgemage Pelles (43)" command="TITRE 43 %p" />
+            <item type="sendCommand" label="Joaillomage (52)" command="TITRE 52 %p" />
+            <item type="sendCommand" label="Sculptemage Arcs (45)" command="TITRE 45 %p" />
+            <item type="sendCommand" label="Sculptemage Baguettes (46)" command="TITRE 46 %p" />
+            <item type="sendCommand" label="Sculptemage Batons (47)" command="TITRE 47 %p" />
+        </item>
+        <item type="menu" label="Titres Vampyres">
+            <item type="sendCommand" label="Goule (1)" command="TITRE 1 %p" />
+            <item type="sendCommand" label="Vampyre (2)" command="TITRE 2 %p" />
+            <item type="sendCommand" label="Vampyre Demonyaque (6)" command="TITRE 6 %p" />
+            <item type="sendCommand" label="Vampyre Maudyt (4)" command="TITRE 4 %p" />
+            <item type="sendCommand" label="Vampyre Runyque (7)" command="TITRE 7 %p" />
+            <item type="sendCommand" label="Vampyre Sanglant (3)" command="TITRE 3 %p" />
+            <item type="sendCommand" label="Vampyre Ultyme (5)" command="TITRE 5 %p" />
+        </item>
+    </item>
+
+</commands>
