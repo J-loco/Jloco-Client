@@ -140,6 +140,26 @@ single-instance, auto-update).
 
 ---
 
+## Launcher (`launcher/`)
+
+`launcher/` is an Electron launcher + patcher that replaces Zaap for this server: it verifies
+the local install against a manifest you publish, downloads only the files that changed, shows
+news and server status, and starts the game with the architecture you picked.
+
+```bash
+cd launcher
+npm install
+npm start                              # run it against the client tree in this repo
+
+node tools/build-manifest.js --copy    # publish an update -> launcher/dist-update/
+rsync -av --delete dist-update/ user@host:/var/www/html/launcher/
+```
+
+Server-side endpoints (`status.php`, `news.php`) live in `StarLoco-Web/launcher/`.
+Full details in [`launcher/README.md`](launcher/README.md).
+
+---
+
 ## How to run it
 
 - **As shipped (x64):** double-click `Dofus Retro.exe`. It auto-loads

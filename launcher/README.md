@@ -78,6 +78,25 @@ runs it, and quits so the exe can be replaced.
 Bump `version` in `package.json` for each launcher release — the comparison is numeric
 per dot-segment.
 
+### Windows: enable Developer Mode before `npm run dist`
+
+Packaging the app directory works out of the box (`dist/win-unpacked/StarLoco Launcher.exe`
+runs as-is), but building the **NSIS installer** fails on this machine with:
+
+```
+ERROR: Cannot create symbolic link : ... winCodeSign\<id>\darwin\10.12\lib\libcrypto.dylib
+```
+
+electron-builder unpacks its `winCodeSign` bundle, which contains macOS symlinks, and creating
+symlinks on Windows needs a privilege a normal user does not have. Pre-extracting the cache does
+not help — each run extracts into a new randomly-named directory. Fix it once, either way:
+
+- **Settings → System → For developers → Developer Mode: On** (grants `SeCreateSymbolicLinkPrivilege`), or
+- run `npm run dist` from an **elevated** terminal.
+
+Until then, `dist/win-unpacked/` is a complete, runnable launcher — zip it if you just need to
+hand someone a build.
+
 ## Notes
 
 - **Verify vs repair.** A normal check trusts a (size, mtime) cache in `userData` and
