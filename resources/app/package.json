@@ -4,6 +4,10 @@
   "version": "1.0.0",
   "description": "Modern Dofus 1 Launcher",
   "main": "preloader.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
   "author": "Ankama Games",
   "homepage": "https://dofus.com/",
   "dependencies": {
@@ -12,6 +16,7 @@
     "discord-rpc": "^4.0.1",
     "docx-templates": "^4.9.2",
     "dotenv": "^10.0.0",
+    "electron": "11.5.0",
     "electron-find-in-page": "^1.0.8",
     "electron-json-settings-store": "^1.0.3",
     "flash-player-loader": "^1.2.0",
