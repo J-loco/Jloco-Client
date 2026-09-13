@@ -1,0 +1,33 @@
+{
+  "name": "starloco-launcher",
+  "productName": "StarLoco Launcher",
+  "version": "1.0.0",
+  "description": "Patcher and launcher for the StarLoco Dofus 1.39 client",
+  "license": "MIT",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder",
+    "manifest": "node tools/build-manifest.js"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.starloco.launcher",
+    "productName": "StarLoco Launcher",
+    "directories": { "output": "dist" },
+    "files": ["src/**/*", "launcher.config.json", "package.json"],
+    "win": {
+      "target": ["nsis", "portable"],
+      "artifactName": "StarLoco-Launcher-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "StarLoco"
+    }
+  }
+}

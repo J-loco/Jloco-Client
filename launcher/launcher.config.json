@@ -1,0 +1,10 @@
+{
+  "remoteBase": "http://127.0.0.1/launcher",
+  "manifestPath": "manifest.json",
+  "filesPath": "files",
+  "newsPath": "news.php",
+  "statusPath": "status.php",
+  "siteUrl": "http://127.0.0.1/",
+  "registerUrl": "http://127.0.0.1/?page=register",
+  "discordUrl": ""
+}

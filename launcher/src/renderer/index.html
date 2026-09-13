@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self' data:;">
+  <title>StarLoco Launcher</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="titlebar">
+    <div class="brand">StarLoco<span>Launcher</span></div>
+    <div class="spacer"></div>
+    <div class="chip" id="statusChip"><i class="dot"></i><span id="statusText">Checking...</span></div>
+    <button class="win-btn" id="btnMin" title="Minimize">&#8211;</button>
+    <button class="win-btn danger" id="btnClose" title="Close">&#10005;</button>
+  </header>
+
+  <main>
+    <section class="news">
+      <h2>News</h2>
+      <div id="newsList" class="news-list"><p class="muted">Loading news...</p></div>
+    </section>
+
+    <aside class="side">
+      <div class="card">
+        <h3>Server</h3>
+        <ul class="kv">
+          <li><span>Login</span><b id="svLogin">-</b></li>
+          <li><span>Game</span><b id="svGame">-</b></li>
+          <li><span>Players online</span><b id="svPlayers">-</b></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Client</h3>
+        <ul class="kv">
+          <li><span>Version</span><b id="cvVersion">-</b></li>
+          <li><span>Mode</span><b id="cvArch">-</b></li>
+        </ul>
+        <button class="link" id="btnSettings">Settings</button>
+        <button class="link" id="btnFolder">Open folder</button>
+      </div>
+      <div class="card links">
+        <button class="link" id="btnSite">Website</button>
+        <button class="link" id="btnRegister">Create an account</button>
+        <button class="link" id="btnDiscord">Discord</button>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="bottom">
+    <div class="progress-wrap">
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <div class="progress-meta">
+        <span id="phase">Starting...</span>
+        <span id="rate" class="muted"></span>
+      </div>
+    </div>
+    <button class="play" id="btnPlay" disabled>PLAY</button>
+  </footer>
+
+  <div class="modal hidden" id="settings">
+    <div class="modal-box">
+      <h3>Settings</h3>
+      <label>Install folder
+        <div class="row">
+          <input id="setPath" readonly>
+          <button id="btnPickPath">Browse</button>
+        </div>
+      </label>
+      <label>Architecture
+        <select id="setArch">
+          <option value="modern-x64">Modern 64 bits (Electron)</option>
+          <option value="legacy-x86">Legacy 32 bits (Flash projector)</option>
+        </select>
+      </label>
+      <label>After launching
+        <select id="setAfter">
+          <option value="minimize">Minimize the launcher</option>
+          <option value="close">Close the launcher</option>
+          <option value="nothing">Do nothing</option>
+        </select>
+      </label>
+      <label class="check"><input type="checkbox" id="setAuto"> Check for updates on startup</label>
+      <div class="modal-actions">
+        <button id="btnRepair" class="ghost">Verify / repair all files</button>
+        <button id="btnCloseSettings" class="primary">Done</button>
+      </div>
+      <p class="muted small" id="launcherVersion"></p>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

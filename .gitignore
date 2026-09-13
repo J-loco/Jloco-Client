@@ -1,0 +1,5 @@
+**/node_modules/**
+resources/app/node_modules/**
+launcher/node_modules/
+launcher/dist/
+launcher/dist-update/
