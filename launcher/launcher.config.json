@@ -1,10 +1,10 @@
 {
-  "remoteBase": "http://127.0.0.1/launcher",
+  "remoteBase": "http://127.0.0.1/dofus/launcher",
   "manifestPath": "manifest.json",
-  "filesPath": "files",
+  "filesPath": "files/1.0.0",
   "newsPath": "news.php",
   "statusPath": "status.php",
-  "siteUrl": "http://127.0.0.1/",
-  "registerUrl": "http://127.0.0.1/?page=register",
+  "siteUrl": "http://127.0.0.1/dofus/",
+  "registerUrl": "http://127.0.0.1/dofus/?page=register",
   "discordUrl": ""
 }
