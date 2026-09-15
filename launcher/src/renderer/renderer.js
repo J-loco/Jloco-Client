@@ -179,13 +179,17 @@ function wire() {
     await window.launcher.check({ full: true });
   };
 
-  const open = (key) => () => {
-    const url = state && state.settings[key];
-    if (url) window.launcher.openExternal(url);
+  const bindExternal = (id, key) => {
+    const button = $(id);
+    if (!button) return;
+    button.onclick = () => {
+      const url = state && state.settings[key];
+      if (url) window.launcher.openExternal(url);
+    };
   };
-  $('btnSite').onclick = open('siteUrl');
-  $('btnRegister').onclick = open('registerUrl');
-  $('btnDiscord').onclick = open('discordUrl');
+  bindExternal('btnSite', 'siteUrl');
+  bindExternal('btnRegister', 'registerUrl');
+  bindExternal('btnDiscord', 'discordUrl');
 
   window.launcher.onEvent(onUpdateEvent);
 }
