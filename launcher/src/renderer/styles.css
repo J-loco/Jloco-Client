@@ -1,10 +1,5 @@
-@font-face {
-  font-family: "Bebas Neue";
-  src: url("assets/BebasNeue.woff") format("woff");
-  font-display: swap;
-}
-
 :root {
+  --font-display: "Bahnschrift SemiCondensed", "Bahnschrift", "Arial Narrow", "Segoe UI", sans-serif;
   --ink: #0b0e0b;
   --canvas: #101410;
   --canvas-soft: #161b15;
@@ -99,7 +94,7 @@ select:focus-visible {
 .brand-mark i::after { transform: translate(-6px, 5px); }
 
 .brand-name {
-  font-family: "Bebas Neue", "Arial Narrow", sans-serif;
+  font-family: var(--font-display);
   font-size: 22px;
   line-height: 1;
   letter-spacing: 1.4px;
@@ -262,9 +257,9 @@ select:focus-visible {
 .hero h1 {
   margin: 6px 0 4px;
   color: #fffdf4;
-  font-family: "Bebas Neue", "Arial Narrow", sans-serif;
+  font-family: var(--font-display);
   font-size: 43px;
-  font-weight: 400;
+  font-weight: 650;
   line-height: .92;
   letter-spacing: .7px;
   text-wrap: balance;
@@ -317,7 +312,7 @@ select:focus-visible {
 }
 
 .hero-signature span { font-size: 7px; font-weight: 700; letter-spacing: 2.4px; }
-.hero-signature strong { font-family: "Bebas Neue", sans-serif; font-size: 17px; font-weight: 400; letter-spacing: 1.7px; }
+.hero-signature strong { font-family: var(--font-display); font-size: 17px; font-weight: 650; letter-spacing: 1.3px; }
 
 .content-grid {
   display: grid;
@@ -346,9 +341,9 @@ select:focus-visible {
 .panel-heading h2 {
   margin: 1px 0 0;
   color: var(--cream);
-  font-family: "Bebas Neue", "Arial Narrow", sans-serif;
+  font-family: var(--font-display);
   font-size: 19px;
-  font-weight: 400;
+  font-weight: 650;
   line-height: 1.1;
   letter-spacing: .5px;
   text-wrap: balance;
@@ -411,7 +406,7 @@ select:focus-visible {
   color: var(--olive-bright);
   background: #262e21;
   border-radius: 8px;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-display);
   font-size: 15px;
   font-variant-numeric: tabular-nums;
   box-shadow: 0 0 0 1px rgba(202, 221, 81, .13) inset;
@@ -474,7 +469,7 @@ select:focus-visible {
 
 .side {
   display: grid;
-  grid-template-rows: 1.14fr .86fr;
+  grid-template-rows: minmax(0, 1fr) 120px;
   gap: 9px;
   min-height: 0;
   overflow-y: auto;
@@ -482,6 +477,8 @@ select:focus-visible {
 
 .server-card,
 .client-card { position: relative; min-height: 0; overflow: hidden; }
+
+.server-card .panel-heading { padding-top: 6px; padding-bottom: 3px; }
 
 .live-badge {
   padding: 3px 6px 2px;
@@ -498,8 +495,8 @@ select:focus-visible {
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 48px;
-  margin: 0 9px 5px;
+  min-height: 44px;
+  margin: 0 9px 3px;
   padding: 6px 10px;
   overflow: hidden;
   background: linear-gradient(105deg, rgba(169, 189, 59, .14), rgba(169, 189, 59, .035));
@@ -510,9 +507,9 @@ select:focus-visible {
 .players-spotlight strong {
   display: block;
   color: var(--olive-bright);
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-display);
   font-size: 25px;
-  font-weight: 400;
+  font-weight: 650;
   line-height: .85;
   font-variant-numeric: tabular-nums;
 }
@@ -544,8 +541,8 @@ select:focus-visible {
 .kv b.up { color: var(--ok); }
 .kv b.down { color: var(--down); }
 
-.server-kv { padding: 0 12px 8px; }
-.server-kv li { padding: 2px 0; }
+.server-kv { padding: 0 12px 6px; }
+.server-kv li { padding: 1px 0; }
 
 .server-kv span { display: flex; align-items: center; gap: 6px; }
 
@@ -569,8 +566,8 @@ select:focus-visible {
   filter: grayscale(.2);
 }
 
-.client-kv { padding: 0 12px 5px; }
-.client-kv li { padding: 1px 0; }
+.client-kv { padding: 0 12px 3px; }
+.client-kv li { padding: 0; line-height: 1.25; }
 
 .client-actions {
   display: grid;
@@ -701,7 +698,7 @@ select:focus-visible {
 }
 
 .play-label {
-  font-family: "Bebas Neue", "Arial Narrow", sans-serif;
+  font-family: var(--font-display);
   font-size: 23px;
   letter-spacing: 2px;
 }
@@ -755,9 +752,9 @@ select:focus-visible {
 .modal-titlebar h3 {
   margin: 2px 0 0;
   color: var(--cream);
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-display);
   font-size: 25px;
-  font-weight: 400;
+  font-weight: 650;
   letter-spacing: .6px;
 }
 
