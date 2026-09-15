@@ -1,4 +1,4 @@
-# StarLoco - Client
+# JLoco - Client
 
 Client version : 1.39.8 electron remastered
 
@@ -62,7 +62,7 @@ Supporting windows / assets in `retroclient/`:
 ### Key directories
 
 ```
-StarLoco-Client/
+JLoco-Client/
 ├─ Dofus Retro.exe                 # Electron runtime (x64)
 ├─ zaap.yml                        # Ankama Launcher manifest (x64 vs x86 selector)
 ├─ resources/
@@ -155,7 +155,7 @@ node tools/build-manifest.js --copy    # publish an update -> launcher/dist-upda
 rsync -av --delete dist-update/ user@host:/var/www/html/launcher/
 ```
 
-Server-side endpoints (`status.php`, `news.php`) live in `StarLoco-Web/launcher/`.
+Server-side endpoints (`status.php`, `news.php`) live in `JLoco-Web/launcher/`.
 Full details in [`launcher/README.md`](launcher/README.md).
 
 ---
@@ -178,7 +178,7 @@ Full details in [`launcher/README.md`](launcher/README.md).
 
 Relevant when modding `StatsJob`: the client sends `AS<stat>` (single +1) or
 `AS<stat>|<quantity>` (multi). Both are handled server-side in
-`StarLoco-Game/src/org/starloco/locos/game/GameClient.java#boost`
+`JLoco-Game/src/org/jloco/locos/game/GameClient.java#boost`
 (`Player.boostStat` / `Player.boostStatFixedCount`).
 
 **Applied patch — StatsJob "always show quantity popup" (2026-05-21):**

@@ -1,8 +1,8 @@
 {
-  "name": "starloco-launcher",
-  "productName": "StarLoco Launcher",
+  "name": "jloco-launcher",
+  "productName": "JLoco Launcher",
   "version": "1.0.0",
-  "description": "Patcher and launcher for the StarLoco Dofus 1.39 client",
+  "description": "Patcher and launcher for the JLoco Dofus 1.39 client",
   "license": "MIT",
   "main": "src/main/main.js",
   "scripts": {
@@ -15,19 +15,19 @@
     "electron-builder": "^24.13.3"
   },
   "build": {
-    "appId": "com.starloco.launcher",
-    "productName": "StarLoco Launcher",
+    "appId": "com.jloco.launcher",
+    "productName": "JLoco Launcher",
     "directories": { "output": "dist" },
     "files": ["src/**/*", "launcher.config.json", "package.json"],
     "win": {
       "target": ["nsis", "portable"],
-      "artifactName": "StarLoco-Launcher-${version}.${ext}"
+      "artifactName": "JLoco-Launcher-${version}.${ext}"
     },
     "nsis": {
       "oneClick": false,
       "perMachine": false,
       "allowToChangeInstallationDirectory": true,
-      "shortcutName": "StarLoco"
+      "shortcutName": "JLoco"
     }
   }
 }

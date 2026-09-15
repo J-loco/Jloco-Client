@@ -1,6 +1,6 @@
-# StarLoco Launcher
+# JLoco Launcher
 
-Electron launcher + patcher for the StarLoco client. Replaces the Ankama Launcher
+Electron launcher + patcher for the JLoco client. Replaces the Ankama Launcher
 (Zaap): it verifies the local install against a manifest you publish, downloads only
 what changed, shows news and server status, and starts the game.
 
@@ -53,7 +53,7 @@ npm start          # installPath defaults to the repo root (the client tree)
    cached by (size, mtime), so re-runs only hash what you touched, and `--copy` only
    stages files whose hash actually changed.
 3. Upload `dist-update/` to `<docroot>/launcher/` on the web host (see
-   `StarLoco-Web/launcher/README.md`). rsync works well:
+   `JLoco-Web/launcher/README.md`). rsync works well:
    ```bash
    rsync -av --delete dist-update/ user@host:/var/www/html/launcher/
    ```
@@ -66,8 +66,8 @@ Point the launcher at your host by editing `launcher.config.json` before packagi
 ## Ship the launcher itself
 
 ```bash
-npm run dist                                   # -> dist/StarLoco-Launcher-1.0.0.exe
-node tools/build-manifest.js --copy --launcher dist/StarLoco-Launcher-1.0.0.exe
+npm run dist                                   # -> dist/JLoco-Launcher-1.0.0.exe
+node tools/build-manifest.js --copy --launcher dist/JLoco-Launcher-1.0.0.exe
 ```
 
 `--launcher` copies the installer next to the manifest and records its version + sha1
@@ -80,7 +80,7 @@ per dot-segment.
 
 ### Windows: enable Developer Mode before `npm run dist`
 
-Packaging the app directory works out of the box (`dist/win-unpacked/StarLoco Launcher.exe`
+Packaging the app directory works out of the box (`dist/win-unpacked/JLoco Launcher.exe`
 runs as-is), but building the **NSIS installer** fails on this machine with:
 
 ```

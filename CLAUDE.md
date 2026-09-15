@@ -4,42 +4,42 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-StarLoco is a Dofus 1.39 private-server emulator split into four sub-projects:
+JLoco is a Dofus 1.39 private-server emulator split into four sub-projects:
 
 | Sub-project | Language | Role |
 |---|---|---|
-| `StarLoco-Game` | Java 21 (Gradle) | Game server — core gameplay, fights, world state |
-| `StarLoco-Login` | Java 8 (Gradle) | Authentication server — account login, server list |
-| `StarLoco-Client` | Electron (JS) | Patched Dofus 1.39.8 desktop client |
-| `StarLoco-Web` | PHP | Web portal — registration, shop, ladder |
+| `JLoco-Game` | Java 21 (Gradle) | Game server — core gameplay, fights, world state |
+| `JLoco-Login` | Java 8 (Gradle) | Authentication server — account login, server list |
+| `JLoco-Client` | Electron (JS) | Patched Dofus 1.39.8 desktop client |
+| `JLoco-Web` | PHP | Web portal — registration, shop, ladder |
 
 ## Build & Run
 
 ### Game server (Java 21 + Amazon Corretto)
 ```bash
-cd StarLoco-Game
+cd JLoco-Game
 ./gradlew jar          # produces build/libs/game.jar
 ./build.sh             # gradle jar + copies game.jar to project root
 java -jar game.jar     # or start.bat on Windows
 ```
-Config: `game.config.properties` (or via `STARLOCO_CONFIG_PATH` env var)
+Config: `game.config.properties` (or via `JLOCO_CONFIG_PATH` env var)
 
 ### Login server (Java 8)
 ```bash
-cd StarLoco-Login
+cd JLoco-Login
 ./gradlew jar          # produces build/libs/login.jar
 java -jar login.jar    # or start.bat on Windows
 ```
 Config: `login.config.properties`
 
-Database setup: create `starloco_login` DB and run `login.sql`. Game DB: create `starloco_game` and run `game.sql`.
+Database setup: create `jloco_login` DB and run `login.sql`. Game DB: create `jloco_game` and run `game.sql`.
 
 ### Docker (full stack)
 ```bash
-cd StarLoco-Game
+cd JLoco-Game
 docker compose -f docker-compose.yml up
 ```
-This spins up MariaDB, Redis, the login image, and builds+runs the game image. Config overrides live in `StarLoco-Game/config/`.
+This spins up MariaDB, Redis, the login image, and builds+runs the game image. Config overrides live in `JLoco-Game/config/`.
 
 ## Architecture
 
@@ -48,7 +48,7 @@ Both servers use Apache MINA with a newline+NUL text codec. Packets are 2-charac
 1. **New-style** (`DofusMessageFactory` + `EventDispatcherFactory`): classes annotated with `@DofusMessage(header="XX")` are discovered via reflection; dispatched through `AbstractEventMessageDispatcher` subclasses annotated with `@Handler`.
 2. **Legacy** (`client.parsePacket()`): a large switch/dispatch in `GameClient`.
 
-### Game server internals (`StarLoco-Game/src/org/starloco/locos/`)
+### Game server internals (`JLoco-Game/src/org/jloco/locos/`)
 - **`kernel/`** — `Main` (entry point, main loop), `Config` (all config properties), `Logging`
 - **`game/`** — `GameServer` (MINA acceptor), `GameHandler` (session lifecycle), `GameClient` (per-connection state + legacy packet dispatch), `game/world/World` (singleton world state: players, maps, NPCs, guilds)
 - **`database/`** — `DatabaseManager` manages two HikariCP pools (login DB + game DB). Each entity type has a `DAO<T>` subclass under `database/data/game/` or `database/data/login/`. DAOs are registered and retrieved via `DatabaseManager.get(SomeData.class)`.
@@ -58,12 +58,12 @@ Both servers use Apache MINA with a newline+NUL text codec. Packets are 2-charac
 - **`area/`** — `GameMap`, `GameCase` (cells), pathfinding, sub-areas.
 - **`exchange/`** — `ExchangeClient` connects game server to login server over a private TCP channel on port 666 (key-authenticated). The login server runs a matching `ExchangeServer`.
 
-### Login server internals (`StarLoco-Login/src/org/starloco/locos/`)
+### Login server internals (`JLoco-Login/src/org/jloco/locos/`)
 - **`login/`** — `LoginServer` accepts client connections; `LoginHandler`/packet classes handle authentication flow (version check → account name → password → server selection).
 - **`exchange/`** — `ExchangeServer` listens for game-server connections; `PacketHandler` routes inter-server messages (server state updates, player counts).
 - **`database/`** — single MariaDB connection (`Database`), DAOs for accounts, players, servers.
 
-### Lua scripts (`StarLoco-Game/scripts/`)
+### Lua scripts (`JLoco-Game/scripts/`)
 - `Common.lua` — shared utilities, loaded first by every VM.
 - `Data.lua` — entry point for static data; uses `LoadPack()` to load subdirectories (`data/`, `models/`, `eventhandlers/`).
 - `Java.lua` — Java interop helpers exposed to scripts.
@@ -71,10 +71,10 @@ Both servers use Apache MINA with a newline+NUL text codec. Packets are 2-charac
 - `eventhandlers/` — Lua-side event handlers registered via `Handlers` (the `EventHandlers` object injected into the VM).
 - `models/` — reusable Lua model definitions.
 
-### Web portal (`StarLoco-Web/`)
+### Web portal (`JLoco-Web/`)
 PHP app with a single front controller (`index.php`) routing via `?page=<name>`. PDO connects to both the login DB and game DB. Pages live in `pages/`, shared classes in `class/`, config in `configuration/`.
 
-### Electron host & launch paths (`StarLoco-Client/`)
+### Electron host & launch paths (`JLoco-Client/`)
 
 The client ships **two ways to run**, selected by the Ankama Launcher (Zaap) manifest `zaap.yml` via a Windows *Architecture* setting:
 
@@ -137,7 +137,7 @@ next to `Dofus Retro.exe`.
   `Dofus Retro.exe` or `resources/app/retroclient/Dofus.exe` per the `arch` setting — the same
   choice `zaap.yml` encodes.
 - Manifest paths are resolved through `safeJoin`, which rejects anything escaping the install root.
-- Server-side endpoints live in `StarLoco-Web/launcher/` (`status.php` → TCP probe + `COUNT(*)
+- Server-side endpoints live in `JLoco-Web/launcher/` (`status.php` → TCP probe + `COUNT(*)
   FROM world_accounts WHERE logged = 1`; `news.php` → `website_timeline_news`, the table the
   portal's admin page already writes).
 - Deploy: `node tools/build-manifest.js --copy`, then rsync `dist-update/` to `<docroot>/launcher/`.
@@ -153,8 +153,8 @@ is a 32-bit Flash projector whose embedded SWF is byte-identical to `preloader.s
 `loader.swf` + `config.xml` from its own directory. Same game, minus the Electron extras
 (detachable chat, debug console, Discord RPC).
 
-### Client SWF mods (`StarLoco-Client/`)
-The Dofus 1.39 client is shipped as an Electron app wrapping a Flash runtime. The main script SWF lives at `StarLoco-Client/resources/app/retroclient/loader.swf`. Source is AS2 with heavy obfuscation (classes renamed to `_SafeStr_NNN`, members bracket-accessed with non-printable string keys like `this.api["\x1c\x16\n"]`).
+### Client SWF mods (`JLoco-Client/`)
+The Dofus 1.39 client is shipped as an Electron app wrapping a Flash runtime. The main script SWF lives at `JLoco-Client/resources/app/retroclient/loader.swf`. Source is AS2 with heavy obfuscation (classes renamed to `_SafeStr_NNN`, members bracket-accessed with non-printable string keys like `this.api["\x1c\x16\n"]`).
 
 **Editing workflow — use JPEXS Free Flash Decompiler, P-Code tab (not decompiled AS):**
 1. Open `loader.swf` in JPEXS.
@@ -164,7 +164,7 @@ The Dofus 1.39 client is shipped as an Electron app wrapping a Flash runtime. Th
 
 Why not edit the decompiled ActionScript: JPEXS' AS2 recompiler is sometimes lossy with obfuscated string-keyed member accesses and can break the runtime lookups. P-Code edits preserve the constant pool verbatim.
 
-Stat-boost client/server contract (relevant when modding `StatsJob`): the client sends `AS<stat>` (single +1) or `AS<stat>|<quantity>` (multi). Both are handled in `StarLoco-Game/src/org/starloco/locos/game/GameClient.java#boost` (`Player.boostStat` / `Player.boostStatFixedCount`).
+Stat-boost client/server contract (relevant when modding `StatsJob`): the client sends `AS<stat>` (single +1) or `AS<stat>|<quantity>` (multi). Both are handled in `JLoco-Game/src/org/jloco/locos/game/GameClient.java#boost` (`Player.boostStat` / `Player.boostStatFixedCount`).
 
 **Applied patch — StatsJob "always show quantity popup" (2026-05-21):**
 In `dofus._SafeStr_0.gapi.ui.StatsJob`, function `click`, inside the `_btn10`–`_btn15` handler block, label `loc1277` originally held:
@@ -178,7 +178,7 @@ loc1277:Pop
 ```
 The `Pop` discards the boolean and falls through unconditionally to the popup construction, making every click open the quantity dialog. The label `loc1277` must be kept — it is a jump target from `loc1423` elsewhere in the function.
 
-### Drop system (`StarLoco-Game/`)
+### Drop system (`JLoco-Game/`)
 
 The `drops` table columns: `objectId`, `monsterId`, `percentGrade1`–`percentGrade5`, `minObj`, `maxObj`, `condition`, `action`.
 
@@ -206,14 +206,14 @@ If all rows show `action = 1`, the drop clobber bug (see DB Migrations below) is
 
 **Live DB repair (if migration 08 ran with bad data):**
 ```bash
-# In StarLoco-Game directory:
+# In JLoco-Game directory:
 sed -n '3474,8072p' db-init/04-game.sql > /tmp/10-update_game_drops_database_22.05.26.sql
 # Then in mysql:
-# USE starloco_game; TRUNCATE TABLE drops; SOURCE /tmp/10-update_game_drops_database_22.05.26.sql;
+# USE jloco_game; TRUNCATE TABLE drops; SOURCE /tmp/10-update_game_drops_database_22.05.26.sql;
 ```
 Then run `.RELOAD DROPS` in-game.
 
-### DB migrations (`StarLoco-Game/db-init/`)
+### DB migrations (`JLoco-Game/db-init/`)
 
 Docker init runs SQL files in numeric order: `04-game.sql` (full seed) → `05` → `06` → `07` → `08-update_game_08.05.23.sql`.
 

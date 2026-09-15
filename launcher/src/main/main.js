@@ -110,7 +110,7 @@ ipcMain.handle('launcher:status', async () => {
 
 ipcMain.handle('launcher:pickInstallPath', async () => {
   const res = await dialog.showOpenDialog(win, {
-    title: 'Select the StarLoco client folder',
+    title: 'Select the JLoco client folder',
     properties: ['openDirectory']
   });
   if (res.canceled || !res.filePaths.length) return null;

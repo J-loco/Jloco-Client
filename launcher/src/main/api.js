@@ -1,5 +1,5 @@
 'use strict';
-// News + server status, served by StarLoco-Web (see StarLoco-Web/launcher/).
+// News + server status, served by JLoco-Web (see JLoco-Web/launcher/).
 
 const settings = require('./settings');
 const { fetchJson } = require('./remote');

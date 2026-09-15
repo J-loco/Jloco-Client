@@ -34,7 +34,7 @@ const EXCLUDE_FILES = [
   /\.part$/,
   /^hs_err_pid\d+\.log$/,
   /flashsettingslocalhost\.sol$/,
-  /^StarLoco Launcher\.exe$/,
+  /^JLoco Launcher\.exe$/,
   /^\.release\.hashes\.json$/
 ];
 
@@ -108,7 +108,7 @@ async function main() {
   const version = args.version || defaultVersion();
 
   if (!fs.existsSync(path.join(root, 'resources', 'app', 'retroclient'))) {
-    throw new Error('--root does not look like a StarLoco client tree: ' + root);
+    throw new Error('--root does not look like a JLoco client tree: ' + root);
   }
   fs.mkdirSync(out, { recursive: true });
 
