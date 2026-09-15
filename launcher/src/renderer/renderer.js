@@ -13,7 +13,9 @@ const fmtBytes = (n) => {
 };
 
 function setProgress(pct) {
-  $('bar').style.width = Math.max(0, Math.min(100, pct)) + '%';
+  const value = Math.max(0, Math.min(100, pct));
+  $('bar').style.width = value + '%';
+  $('bar').parentElement.setAttribute('aria-valuenow', String(Math.round(value)));
 }
 
 function setPhase(text, rate) {
@@ -22,9 +24,11 @@ function setPhase(text, rate) {
 }
 
 function setPlayable(on, label) {
+  const buttonLabel = label || 'JOUER';
   ready = on;
   $('btnPlay').disabled = !on;
-  $('btnPlay').textContent = label || 'PLAY';
+  $('btnPlay').classList.toggle('compact', buttonLabel.length > 7);
+  $('btnPlay').querySelector('.play-label').textContent = buttonLabel;
 }
 
 async function refreshState() {
@@ -42,20 +46,30 @@ async function loadNews() {
   const res = await window.launcher.news();
   const box = $('newsList');
   if (!res.ok || !res.items.length) {
-    box.innerHTML = '<p class="muted">' + (res.ok ? 'No news yet.' : 'News unavailable: ' + res.error) + '</p>';
+    box.textContent = '';
+    const empty = document.createElement('p');
+    empty.className = 'empty-state';
+    empty.textContent = res.ok ? 'Aucune nouvelle pour le moment.' : 'Les nouvelles sont temporairement indisponibles.';
+    box.appendChild(empty);
     return;
   }
   box.innerHTML = '';
-  for (const item of res.items) {
+  for (const [index, item] of res.items.entries()) {
     const el = document.createElement('article');
     el.className = 'news-item';
+    const number = document.createElement('span');
+    number.className = 'news-index';
+    number.textContent = String(index + 1).padStart(2, '0');
+    const body = document.createElement('div');
+    body.className = 'news-body';
     const h = document.createElement('h4');
     h.textContent = item.title || '';
     const t = document.createElement('time');
     t.textContent = item.date || '';
     const p = document.createElement('p');
     p.textContent = item.content || '';
-    el.append(h, t, p);
+    body.append(h, p);
+    el.append(number, body, t);
     box.appendChild(el);
   }
 }
@@ -64,21 +78,24 @@ async function loadStatus() {
   const res = await window.launcher.status();
   const chip = $('statusChip');
   if (!res.ok) {
-    chip.className = 'chip down';
-    $('statusText').textContent = 'Server unreachable';
+    chip.className = 'server-chip down';
+    $('statusText').textContent = 'Serveur inaccessible';
     $('svLogin').textContent = $('svGame').textContent = '?';
+    $('svPlayers').textContent = '–';
     return;
   }
   const s = res.status;
   const mark = (el, up) => {
     el.textContent = up ? 'Online' : 'Offline';
     el.className = up ? 'up' : 'down';
+    const dot = el.parentElement.querySelector('.mini-dot');
+    if (dot) dot.className = 'mini-dot ' + (up ? 'up' : 'down');
   };
   mark($('svLogin'), s.login);
   mark($('svGame'), s.game);
   $('svPlayers').textContent = s.players == null ? '-' : String(s.players);
-  chip.className = 'chip ' + (s.login && s.game ? 'up' : 'down');
-  $('statusText').textContent = s.login && s.game ? 'Server online' : 'Server offline';
+  chip.className = 'server-chip ' + (s.login && s.game ? 'up' : 'down');
+  $('statusText').textContent = s.login && s.game ? 'Le serveur est en ligne' : 'Le serveur est hors ligne';
 }
 
 function onUpdateEvent({ type, payload }) {
@@ -89,10 +106,10 @@ function onUpdateEvent({ type, payload }) {
     if (payload.phase === 'ready') {
       setProgress(100);
       setPhase(payload.message, '');
-      setPlayable(state && state.game.ok, pendingLauncherUpdate ? 'UPDATE LAUNCHER' : 'PLAY');
+      setPlayable(state && state.game.ok, pendingLauncherUpdate ? 'METTRE À JOUR' : 'JOUER');
     } else if (payload.phase === 'error') {
       setPhase('Error: ' + payload.message, '');
-      setPlayable(state && state.game.ok, 'PLAY ANYWAY');
+      setPlayable(state && state.game.ok, 'JOUER QUAND MÊME');
     } else {
       setPlayable(false);
       setProgress(payload.phase === 'downloading' ? 0 : 3);
@@ -126,8 +143,17 @@ function wire() {
     }
   };
 
-  $('btnSettings').onclick = () => $('settings').classList.remove('hidden');
-  $('btnCloseSettings').onclick = () => $('settings').classList.add('hidden');
+  const openSettings = () => $('settings').classList.remove('hidden');
+  const closeSettings = () => $('settings').classList.add('hidden');
+  $('btnSettings').onclick = openSettings;
+  $('btnCloseSettings').onclick = closeSettings;
+  $('btnSaveSettings').onclick = closeSettings;
+  $('settings').onclick = (event) => {
+    if (event.target === $('settings')) closeSettings();
+  };
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeSettings();
+  });
   $('btnFolder').onclick = () => window.launcher.openInstallPath();
 
   $('btnPickPath').onclick = async () => {

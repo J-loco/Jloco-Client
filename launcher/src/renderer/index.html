@@ -2,90 +2,162 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self' data:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self' data:; font-src 'self';">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>StarLoco Launcher</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="titlebar">
-    <div class="brand">StarLoco<span>Launcher</span></div>
-    <div class="spacer"></div>
-    <div class="chip" id="statusChip"><i class="dot"></i><span id="statusText">Checking...</span></div>
-    <button class="win-btn" id="btnMin" title="Minimize">&#8211;</button>
-    <button class="win-btn danger" id="btnClose" title="Close">&#10005;</button>
+    <div class="brand" aria-label="StarLoco">
+      <span class="brand-mark" aria-hidden="true"><i></i></span>
+      <span class="brand-name">STAR<span>LOCO</span></span>
+      <span class="brand-edition">RETRO</span>
+    </div>
+
+    <nav class="top-nav" aria-label="Liens StarLoco">
+      <button class="nav-link active" type="button">Actualités</button>
+      <button class="nav-link" id="btnSite" type="button">Site</button>
+      <button class="nav-link" id="btnRegister" type="button">Créer un compte</button>
+      <button class="nav-link" id="btnDiscord" type="button">Discord</button>
+    </nav>
+
+    <div class="window-controls">
+      <button class="win-btn" id="btnMin" type="button" title="Réduire" aria-label="Réduire">&#8211;</button>
+      <button class="win-btn danger" id="btnClose" type="button" title="Fermer" aria-label="Fermer">&#10005;</button>
+    </div>
   </header>
 
-  <main>
-    <section class="news">
-      <h2>News</h2>
-      <div id="newsList" class="news-list"><p class="muted">Loading news...</p></div>
+  <main class="app-content">
+    <section class="hero" aria-labelledby="heroTitle">
+      <img class="hero-art" src="assets/hero-jungle.png" alt="Un aventurier pêche dans une jungle du Monde des Douze">
+      <div class="hero-shade"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">DOFUS 1.39 <span></span> SERVEUR FRANÇAIS</p>
+        <h1 id="heroTitle">Reprenez votre<br>aventure rétro.</h1>
+        <p class="hero-text">Un monde fidèle, vivant et façonné par sa communauté.</p>
+        <div class="server-chip" id="statusChip">
+          <i class="status-dot" aria-hidden="true"></i>
+          <span id="statusText">Connexion au serveur…</span>
+        </div>
+      </div>
+      <div class="hero-signature" aria-hidden="true">
+        <span>LE MONDE</span>
+        <strong>DES DOUZE</strong>
+      </div>
     </section>
 
-    <aside class="side">
-      <div class="card">
-        <h3>Server</h3>
-        <ul class="kv">
-          <li><span>Login</span><b id="svLogin">-</b></li>
-          <li><span>Game</span><b id="svGame">-</b></li>
-          <li><span>Players online</span><b id="svPlayers">-</b></li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Client</h3>
-        <ul class="kv">
-          <li><span>Version</span><b id="cvVersion">-</b></li>
-          <li><span>Mode</span><b id="cvArch">-</b></li>
-        </ul>
-        <button class="link" id="btnSettings">Settings</button>
-        <button class="link" id="btnFolder">Open folder</button>
-      </div>
-      <div class="card links">
-        <button class="link" id="btnSite">Website</button>
-        <button class="link" id="btnRegister">Create an account</button>
-        <button class="link" id="btnDiscord">Discord</button>
-      </div>
-    </aside>
+    <div class="content-grid">
+      <section class="news panel" aria-labelledby="newsTitle">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">JOURNAL DE BORD</p>
+            <h2 id="newsTitle">Les dernières nouvelles</h2>
+          </div>
+          <span class="panel-rule" aria-hidden="true"></span>
+        </div>
+        <div id="newsList" class="news-list" aria-live="polite">
+          <p class="empty-state"><span class="spinner" aria-hidden="true"></span>Chargement des nouvelles…</p>
+        </div>
+      </section>
+
+      <aside class="side" aria-label="État du serveur et du client">
+        <section class="server-card panel">
+          <div class="panel-heading compact">
+            <div>
+              <p class="section-kicker">ÉTAT DU ROYAUME</p>
+              <h2>Serveur StarLoco</h2>
+            </div>
+            <span class="live-badge">LIVE</span>
+          </div>
+
+          <div class="players-spotlight">
+            <div>
+              <strong id="svPlayers">–</strong>
+              <span>aventuriers en ligne</span>
+            </div>
+            <img src="assets/pet.png" alt="" aria-hidden="true">
+          </div>
+
+          <ul class="kv server-kv">
+            <li><span><i class="mini-dot"></i>Serveur de connexion</span><b id="svLogin">–</b></li>
+            <li><span><i class="mini-dot"></i>Serveur de jeu</span><b id="svGame">–</b></li>
+          </ul>
+        </section>
+
+        <section class="client-card panel">
+          <img class="loot-watermark" src="assets/loot-bag.png" alt="" aria-hidden="true">
+          <div class="panel-heading compact">
+            <div>
+              <p class="section-kicker">VOTRE CLIENT</p>
+              <h2>Prêt pour l'aventure</h2>
+            </div>
+          </div>
+          <ul class="kv client-kv">
+            <li><span>Version du jeu</span><b id="cvVersion">–</b></li>
+            <li><span>Mode de lancement</span><b id="cvArch">–</b></li>
+          </ul>
+          <div class="client-actions">
+            <button class="utility-button" id="btnSettings" type="button"><span aria-hidden="true">⚙</span> Paramètres</button>
+            <button class="utility-button" id="btnFolder" type="button"><span aria-hidden="true">⌁</span> Dossier</button>
+          </div>
+        </section>
+      </aside>
+    </div>
   </main>
 
   <footer class="bottom">
+    <div class="update-icon" aria-hidden="true"><span>↓</span></div>
     <div class="progress-wrap">
-      <div class="progress"><div class="bar" id="bar"></div></div>
       <div class="progress-meta">
-        <span id="phase">Starting...</span>
-        <span id="rate" class="muted"></span>
+        <span id="phase">Initialisation du launcher…</span>
+        <span id="rate"></span>
+      </div>
+      <div class="progress" role="progressbar" aria-label="Progression de la mise à jour" aria-valuemin="0" aria-valuemax="100">
+        <div class="bar" id="bar"></div>
       </div>
     </div>
-    <button class="play" id="btnPlay" disabled>PLAY</button>
+    <button class="play" id="btnPlay" type="button" disabled>
+      <span class="play-icon" aria-hidden="true"></span>
+      <span class="play-label">JOUER</span>
+      <span class="play-arrow" aria-hidden="true">→</span>
+    </button>
   </footer>
 
-  <div class="modal hidden" id="settings">
+  <div class="modal hidden" id="settings" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
     <div class="modal-box">
-      <h3>Settings</h3>
-      <label>Install folder
+      <div class="modal-titlebar">
+        <div>
+          <p class="section-kicker">LAUNCHER STARLOCO</p>
+          <h3 id="settingsTitle">Paramètres</h3>
+        </div>
+        <button class="modal-close" id="btnCloseSettings" type="button" aria-label="Fermer les paramètres">&#10005;</button>
+      </div>
+      <label>Dossier d'installation
         <div class="row">
           <input id="setPath" readonly>
-          <button id="btnPickPath">Browse</button>
+          <button id="btnPickPath" type="button">Parcourir</button>
         </div>
       </label>
       <label>Architecture
         <select id="setArch">
-          <option value="modern-x64">Modern 64 bits (Electron)</option>
+          <option value="modern-x64">Moderne 64 bits (Electron)</option>
           <option value="legacy-x86">Legacy 32 bits (Flash projector)</option>
         </select>
       </label>
-      <label>After launching
+      <label>Après le lancement
         <select id="setAfter">
-          <option value="minimize">Minimize the launcher</option>
-          <option value="close">Close the launcher</option>
-          <option value="nothing">Do nothing</option>
+          <option value="minimize">Réduire le launcher</option>
+          <option value="close">Fermer le launcher</option>
+          <option value="nothing">Ne rien faire</option>
         </select>
       </label>
-      <label class="check"><input type="checkbox" id="setAuto"> Check for updates on startup</label>
+      <label class="check"><input type="checkbox" id="setAuto"> Rechercher les mises à jour au démarrage</label>
       <div class="modal-actions">
-        <button id="btnRepair" class="ghost">Verify / repair all files</button>
-        <button id="btnCloseSettings" class="primary">Done</button>
+        <button id="btnRepair" class="ghost" type="button">Vérifier / réparer les fichiers</button>
+        <button id="btnSaveSettings" class="primary" type="button">Terminé</button>
       </div>
-      <p class="muted small" id="launcherVersion"></p>
+      <p class="launcher-version" id="launcherVersion"></p>
     </div>
   </div>
 
