@@ -475,7 +475,7 @@ Dynamic libraries:
 
 VM Arguments:
 jvm_args: -Xmx29616m -Djava.net.preferIPv4Stack=true -Djna.nosys=true 
-java_command: D:\Emulation\Logiciel Emulation\FFDec14\FFDec\ffdec.jar C:\Users\Olivier THEROND\Desktop\StarLoco\client1.39.8\Retro\resources\app\retroclient\loader.swf
+java_command: D:\Emulation\Logiciel Emulation\FFDec14\FFDec\ffdec.jar C:\Users\Olivier THEROND\Desktop\JLoco\client1.39.8\Retro\resources\app\retroclient\loader.swf
 java_class_path (initial): D:\Emulation\Logiciel Emulation\FFDec14\FFDec\ffdec.jar
 Launcher Type: SUN_STANDARD
 
