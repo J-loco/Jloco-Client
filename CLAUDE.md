@@ -129,7 +129,9 @@ next to `Dofus Retro.exe`.
 - `tools/build-manifest.js` walks the client tree and writes `dist-update/manifest.json`
   (`{version, files: {path: {size, sha1}}, delete: [...]}`); `--copy` also stages changed files
   into `dist-update/files/`. Both sides cache hashes by (size, mtime) — a full scan of the tree
-  is ~19.6k files / 637 MB.
+  is ~22.5k files / 666 MB. Unlike source-only dependency folders,
+  `resources/app/node_modules/` is included because the x64 Electron client needs `bytenode`
+  to load `main.jsc` and uses the other packages at runtime.
 - The launcher verifies locally, downloads only differing files (6 at a time, sha1-checked,
   written to `<file>.part` then renamed), deletes files listed in `delete`, and launches
   `Dofus Retro.exe` or `resources/app/retroclient/Dofus.exe` per the `arch` setting — the same

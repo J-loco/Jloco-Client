@@ -98,14 +98,15 @@ async function loadStatus() {
   $('statusText').textContent = s.login && s.game ? 'Le serveur est en ligne' : 'Le serveur est hors ligne';
 }
 
-function onUpdateEvent({ type, payload }) {
+async function onUpdateEvent({ type, payload }) {
   if (type === 'phase') {
     if (payload.version) $('cvVersion').textContent = payload.version;
     pendingLauncherUpdate = payload.launcherUpdate || pendingLauncherUpdate;
 
     if (payload.phase === 'ready') {
       setProgress(100);
-      setPhase(payload.message, '');
+      await refreshState();
+      setPhase(state && state.game.ok ? payload.message : state.game.reason, '');
       setPlayable(state && state.game.ok, pendingLauncherUpdate ? 'METTRE À JOUR' : 'JOUER');
     } else if (payload.phase === 'error') {
       setPhase('Error: ' + payload.message, '');
@@ -198,6 +199,10 @@ function wire() {
 
   if (state.settings.autoCheck) {
     await window.launcher.check({});
+  } else if (!state.game.ok) {
+    setPhase(state.game.reason, '');
+    setProgress(0);
+    setPlayable(false);
   } else {
     setPhase('Auto-check disabled.', '');
     setProgress(100);

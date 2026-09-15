@@ -10,7 +10,15 @@ const path = require('path');
 const { spawn } = require('child_process');
 
 const TARGETS = {
-  'modern-x64': { rel: 'Dofus Retro.exe', cwd: '.' },
+  'modern-x64': {
+    rel: 'Dofus Retro.exe',
+    cwd: '.',
+    required: [
+      path.join('resources', 'app', 'preloader.js'),
+      path.join('resources', 'app', 'main.jsc'),
+      path.join('resources', 'app', 'node_modules', 'bytenode', 'lib', 'index.js')
+    ]
+  },
   'legacy-x86': { rel: path.join('resources', 'app', 'retroclient', 'Dofus.exe'), cwd: path.join('resources', 'app', 'retroclient') }
 };
 
@@ -44,6 +52,17 @@ function resolve(installPath, arch) {
         path.basename(exe) +
         ' is a Git LFS pointer, not the real binary. Run "git lfs pull" in the client repo, or let the launcher download it.'
     };
+  }
+  for (const rel of target.required || []) {
+    const requiredFile = path.join(installPath, rel);
+    if (!fs.existsSync(requiredFile)) {
+      return {
+        ok: false,
+        exe,
+        cwd,
+        reason: 'Required x64 runtime file is missing: ' + rel + '. Run Verify / repair files.'
+      };
+    }
   }
   return { ok: true, exe, cwd };
 }

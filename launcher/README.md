@@ -107,6 +107,8 @@ hand someone a build.
 - **Downloads** run 6 at a time, stream straight to `<file>.part`, are checked against
   the manifest sha1, and are renamed over the target only on match. 3 retries with
   backoff.
-- **Excluded from updates:** `.git/`, `node_modules/`, `launcher/`, `dist-update/`,
-  `CLAUDE.md`, `README.md`, `hs_err_pid*.log`, `flashsettingslocalhost.sol`, and the
-  launcher exe itself (which updates through `manifest.launcher` instead).
+- **Excluded from updates:** `.git/`, source-only `node_modules/` directories,
+  `launcher/`, `dist-update/`, `CLAUDE.md`, `README.md`, `hs_err_pid*.log`,
+  `flashsettingslocalhost.sol`, and the launcher exe itself (which updates through
+  `manifest.launcher` instead). `resources/app/node_modules/` is intentionally
+  included because it contains the runtime dependencies used by the x64 client.

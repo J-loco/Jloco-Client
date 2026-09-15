@@ -22,7 +22,10 @@ const { sha1File } = require('../src/main/manifest');
 const CONCURRENCY = 8;
 
 // Everything that is per-machine, source-only, or regenerated on the dev box.
-const EXCLUDE_DIRS = new Set(['.git', 'node_modules', 'launcher', 'dist-update']);
+// resources/app/node_modules is part of the shipped Dofus Electron application:
+// preloader.js needs bytenode to load main.jsc, and main.jsc uses other runtime
+// packages. Excluding every node_modules directory produces a broken x64 install.
+const EXCLUDE_DIRS = new Set(['.git', 'launcher', 'dist-update']);
 const EXCLUDE_FILES = [
   /^\.gitignore$/,
   /^\.gitattributes$/,
@@ -57,6 +60,13 @@ function walk(root, rel = '') {
     const childRel = rel ? rel + '/' + entry.name : entry.name;
     if (entry.isDirectory()) {
       if (EXCLUDE_DIRS.has(entry.name)) continue;
+      if (
+        entry.name === 'node_modules' &&
+        childRel !== 'resources/app/node_modules' &&
+        !childRel.startsWith('resources/app/node_modules/')
+      ) {
+        continue;
+      }
       out.push(...walk(root, childRel));
     } else if (entry.isFile()) {
       if (EXCLUDE_FILES.some((re) => re.test(entry.name) || re.test(childRel))) continue;
